@@ -1,0 +1,39 @@
+.leftNave{
+  width: 216px;
+  position: fixed;
+  top: 98px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  .foryou{
+
+  }
+  .myHighlight{
+
+  }
+  .more{
+
+  }
+  // leftNave common
+  .menu{
+    box-sizing: border-box;
+    width: 232px;
+    height: 51px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    left: -16px;
+    cursor: pointer;
+    &:hover{
+      background-color: #f6f8fa;
+    }
+    &.active{
+      color: #00bdb8;
+      font-weight: 600;
+    }
+  }
+}
