@@ -1,0 +1,162 @@
+.summeryitem-container {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  padding: 24px 16px 0;
+  width: 712px;
+  position: relative;
+
+  // foryou (option) Tags
+  .summeryitem-siteTags {
+    margin-bottom: 4px;
+    height: 21px;
+    max-width: 560px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .siteTag {
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-weight: 500;
+      line-height: 1.5;
+      font-size: 12px;
+      letter-spacing: -.3px;
+      color: #00bdb8;
+      display: inline-block;
+      margin: 0 6px 0 0;
+      padding: 0;
+      height: 21px;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+
+  // * Main Part
+  .summeryitem-main {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    overflow-x: hidden;
+
+    .summeryitem-main-contents {
+      .contents-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.33;
+        color: #222;
+        margin: 0 0 8px;
+      }
+
+      .contents-highlight {
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 16px;
+        width: 100%;
+        font-weight: 400;
+        line-height: 1.43;
+        letter-spacing: normal;
+        color: #555;
+        word-wrap: break-word;
+        .highlight-border{
+
+        }
+        .hightlight-content{
+          
+        }
+      }
+    }
+
+    // .summeryitem-main-imgContainer {
+
+    .main-imgContainer-img {
+      width: 96px;
+      height: 96px;
+      border-radius: 4px;
+      margin-left: 24px;
+      object-fit: cover;
+      // flex-shrink: 0;
+    }
+
+    // }
+
+  }
+
+  // * Bottom Part
+  .summary-bottom {
+    height: 48px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    width: 680px;
+    padding-bottom: 16px;
+
+    // foryou (option)
+    .mytags-container {
+      .mytags-contant {
+        .mytags-li {}
+
+      }
+
+      .editTag {}
+
+    }
+
+    .summary-bottom-container {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      justify-content: space-between;
+
+      // * Bottom Left Part
+      .summary-bottom__left {
+        .linkline-container {
+          display: flex;
+
+          .linkline-containe__img {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            object-fit: cover;
+          }
+
+          .linkline-container__source {
+            margin-left: 14px;
+
+            .linkline-container__source__a {
+              color: #777;
+              font-size: 11px;
+              text-decoration: underline;
+              font-weight: 500;
+              cursor: pointer;
+              line-height: 1.5;
+              font-family: 'Roboto', sans-serif;
+            }
+          }
+
+        }
+
+        // myHighlight (option)
+        .date {}
+      }
+
+      // * Bottom Right Part(Buttons)
+      .summary-bottom__right {
+        .summary-bottom__right-btn {
+          display: flex;
+
+          &.foryou-btn {}
+
+          &.myHigh-btn {}
+        }
+
+      }
+
+    }
+  }
+
+  .border-seperator {
+    height: 8px;
+    border-bottom: 1px solid #eef1f4;
+  }
+
+}
