@@ -1,0 +1,222 @@
+.for-title {
+  // for title 부분
+  // width: 100%;
+  display: flex;
+  // flex-direction: column;
+  position: sticky;
+
+  // .for-title-main {
+    background-color: #fff;
+    width: 681px;
+    margin: 40px 16px 16px 15px;
+    display: flex;
+    top: 64px;
+    z-index: 2;
+    height: 40px;
+    align-items: center;
+
+    
+    h1 {
+      width: 100%;
+    }
+    
+    .info-btn {
+      margin-left: 9px;
+      background-image: url(../../assets/svg/info_i.svg);
+      width: 32px;
+      height: 32px;
+      background-size: 20px;
+      border: none;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      border-radius: 50%;
+      z-index: 7;
+      position: absolute;
+      
+      &:hover{
+        background-color: #f6f8fa;
+      }
+
+    }
+    
+    // info motal 부분
+    
+    .info-modal-container {
+      position: absolute;
+      top: -20px;
+      right: 173px;
+      
+      .motal-triangle {
+        width: 19px;
+        height: 19px;
+        background-color: #52565d;
+        position: absolute;
+        top: 30px;
+        left: -9px;
+        transform: rotate(45deg);
+        z-index: 2;
+        border-bottom-left-radius: 4px;
+        border-bottom: 1px solid #969aa2;
+        border-left: 1px solid #969aa2;
+      }
+    }
+    // scroll 시
+    &.scrolled{
+      position: fixed;
+      top: 21px;
+      margin: 0;
+      margin-left: 16px;
+      h1{
+        font-size: 16px;
+      }
+    }
+
+    .motal-inner {
+      width: 320px;
+      height: 280px;
+      box-shadow: 0 8px 20px 0 rgba(39, 43, 49, 0.2);
+      border: 1px solid #969aa2;
+      border-radius: 8px;
+      background-color: #52565d;
+
+      .close-btn {
+        background-image: url(../../assets/svg/close-be-comment.svg);
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        z-index: 3;
+      }
+
+      .lottie-container {}
+
+      .motal-inner-description {
+        margin-top: -10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 16px;
+        color: #fff;
+
+        h4 {
+          font-weight: 700;
+          font-size: 16px;
+          letter-spacing: -.4px;
+        }
+
+        p {
+          font-weight: 500;
+          margin-top: 8px;
+          line-height: 20px;
+          font-size: 14px;
+          letter-spacing: -.35px;
+        }
+      }
+    }
+  // }
+}
+
+// language btn 부분
+.language-container {
+  align-self: flex-end;
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+
+  .language-btn {
+    margin-left: 4px;
+    display: flex;
+    border: none;
+    font-size: 14px;
+    color: #787D86;
+
+    .expand {
+      background-image: url(../../assets/svg/expand-grey.svg);
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      margin-left: 4px;
+    }
+    .collapse {
+      background-image: url(../../assets/svg/collapse.svg);
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      margin-left: 4px;
+    }
+  }
+
+  .language-dropbox {
+    position: absolute;
+    width: 200px;
+    top: 40px;
+    right: 0;
+    white-space: nowrap;
+    z-index: 2;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px 0 rgba(39, 43, 49, 0.1);
+    border: 1px solid #eef1f4;
+    background-color: #fff;
+    padding: 8px 0;
+    margin: 0;
+
+    .lan-ul {
+      height: 36px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -.35px;
+      color: #969aa2;
+      display: flex;
+      padding: 8px 15px 0;
+      box-sizing: border-box;
+    }
+    
+    .lang-li {
+      box-sizing: border-box;
+      padding: 8px 15px;
+      height: 40px;
+      font-weight: 400;
+      color: #52565d;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      
+      span{
+        padding: 0; 
+        // language check 시 색 바꿈
+        &.lan-span-check {
+          color: #00BDB8;
+          font-weight: 500;
+        }
+        
+      }
+      // language check 시 체크표시
+      .check {
+        background-image: url(../../assets/svg/check-primary.svg);
+        background-repeat: no-repeat;
+        background-size: 14px 10px;
+        width: 14px;
+        height: 10px;
+        justify-self: flex-end;
+        margin-left: auto;
+      }
+      &:hover{
+        background-color: #f6f8fa;
+      }
+    }
+  }
+
+}
+
+// title 설명부분
+.for-title-description {
+  margin: 0 16px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #787D86;
+  letter-spacing: -.35px;
+}
