@@ -122,3 +122,9 @@ export function MoreBtn({ hide }) {
     </div>
   );
 }
+export function ExtendBtn() {
+  return <div className="expand"></div>;
+}
+export function CollapseBtn() {
+  return <div className="collapse"></div>;
+}

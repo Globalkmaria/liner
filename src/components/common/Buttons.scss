@@ -239,3 +239,20 @@
     
   }
 }
+
+// EXTEND
+.expand {
+  background-image: url(../../assets/svg/expand-grey.svg);
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-left: 4px;
+}
+// COLLPASE
+.collapse {
+  background-image: url(../../assets/svg/collapse.svg);
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-left: 4px;
+}

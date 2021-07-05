@@ -69,3 +69,16 @@ h1 {
     text-align: center;
     box-sizing: border-box;
 }
+.modal-subtitle{
+  font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.35px;
+    color: #969aa2;
+    height: 34px;
+    width: 100%;
+    cursor: default;
+}
