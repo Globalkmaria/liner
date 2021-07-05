@@ -1,18 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CollapseBtn, ExtendBtn } from '../../components/common/Buttons';
 import './MyTitle.scss';
 function MyTitle() {
-  const [scroll, setscroll] = useState(false);
-  const total_pages = 5;
-  const total_highlights = 6;
-  const changeNav = () => {
-    if (window.scrollY >= 76) {
-      setscroll(true);
-    } else {
-      setscroll(false);
-    }
-  };
+  const total_pages = 4;
+  const total_highlights = 5;
   const [infoModal, setInfoModal] = useState(false);
   const onInfoModalToggle = () => {
     setInfoModal(!infoModal);
@@ -399,14 +391,12 @@ function MyTitle() {
                 </div>
               </div>
             </form>
-            {searchFocus && (
-              <span className="search-description">
-                Search results from my highlights
-              </span>
-            )}
           </div>
         </div>
       </div>
+      <span className="search-description">
+        Search results from my highlights
+      </span>
     </>
   );
 }

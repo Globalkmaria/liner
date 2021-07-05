@@ -215,6 +215,8 @@ $checked-color: #00bdb8;
   z-index: 10;
   // z-index 확인
   color: #52565d;
+  background-color: #fff;
+  height: 40px;
 
   .my-nav-tab {
     box-sizing: border-box;
@@ -746,21 +748,21 @@ $checked-color: #00bdb8;
         }
       }
 
-      .search-description {
-        font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
-          sans-serif;
-        display: flex;
-        font-weight: 400;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        color: #969aa2;
-        height: 34px;
-        align-items: center;
-        padding-left: 16px;
-        font-size: 12px;
-        letter-spacing: -0.3px;
-      }
     }
   }
+}
+.search-description {
+  font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+    sans-serif;
+  display: flex;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #969aa2;
+  height: 34px;
+  align-items: center;
+  padding-left: 16px;
+  font-size: 12px;
+  letter-spacing: -0.3px;
 }
