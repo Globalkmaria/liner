@@ -12,7 +12,7 @@ export const detail_data = [
     ],
     liner_highlight:
       'However, the company changed course in late 2019, announcing that it will continue to add new features to desktop version of OneNote and that the desktop version will once again be included with Office 365 as of March 2020',
-    siteimg: '/assests/site_img/site1.jpeg',
+    siteImg: '/assests/site_img/site1.jpeg',
     linkImg: '/assests/link_img/link1.png',
     link: 'www.computerworld.com',
   },
@@ -29,7 +29,7 @@ export const detail_data = [
     ],
     liner_highlight:
       'In Finder, you can secondary click a file and assign it a color “Tag.” When you click that Tag on the left sidebar of Finder, all folders or files with that Tag will appear. You can also drag a Tag group (what’s called a "Stack") from the Finder sidebar down to your Dock (row of icons) for easier access',
-    siteimg: '/assests/site_img/site2.jpeg',
+    siteImg: '/assests/site_img/site2.jpeg',
     linkImg: '/assests/link_img/link2.jpeg',
     link: 'www.entrepreneur.com',
   },
@@ -46,7 +46,7 @@ export const detail_data = [
     ],
     liner_highlight:
       'Update: Google Docs now has a built-in outliner. When you open it from Tools > Document Outline View > Show document outline, it will pick up any heading ...',
-    siteimg:
+    siteImg:
       'https://www.eadeverell.com/wp-content/uploads/googledocs-800x1150.jpg',
     linkImg:
       'https://www.eadeverell.com/wp-content/uploads/2013/10/pic3-200x200.jpg',
@@ -64,7 +64,7 @@ export const detail_data = [
     ],
     liner_highlight:
       'How I think of it is that it works kind of like time travel with clones. When you click on the Δ button for a block, the original block is sent forward in time. In its place a “clone” is created. This clone is basically a copy of the original block that links back to the original. If you have used the Δ button once for a given block, the links...',
-    siteimg: '',
+    siteImg: '',
     linkImg: 'https://getliner.com/src/images/favicon.svg',
     link: 'www.iantay.dev',
   },
@@ -122,25 +122,25 @@ export const people_also_read = [
   {
     id: 0,
     title: 'Free Note-Taking App For Connecting Ideas | The Startup',
-    siteAdrress: 'medium.com',
+    link: 'medium.com',
     tags: [],
   },
   {
     id: 1,
     title: 'OneNote, digital note taking app - Office',
-    siteAdrress: 'www.microsoft.com',
+    link: 'www.microsoft.com',
     tags: ['digital note taking', 'note taking', 'onenote'],
   },
   {
     id: 2,
     title: '20 macOS Shortcuts to Make You Work Like a Genius',
-    siteAdrress: 'www.entrepreneur.com',
+    link: 'www.entrepreneur.com',
     tags: ['apple', 'gadgets', 'hacks', 'productivity'],
   },
   {
     id: 3,
     title: 'Things vs OmniFocus vs Todoist: A comparison of the best ...',
-    siteAdrress: 'thesweetsetup.com',
+    link: 'thesweetsetup.com',
     tags: [],
   },
 ];
@@ -202,8 +202,7 @@ export const myHightlight = [
       ['yellow', 'Although you can write your articles in Microsoft Word'],
     ],
     link: 'www.lifehack.org',
-    linkimg:
-      'https://cdn.lifehack.org/wp-content/uploads/2008/01/20081013-writing.png',
+    linkImg: 'https://getliner.com/src/images/favicon.svg',
     date: 'Jul 1, 2021',
   },
   {
@@ -218,7 +217,7 @@ export const myHightlight = [
       ],
     ],
     link: 'getliner.com',
-    linkimg: 'https://getliner.com/src/images/favicon.svg',
+    linkImg: 'https://getliner.com/src/images/favicon.svg',
     date: 'Jul 1, 2021',
   },
   {
@@ -229,7 +228,7 @@ export const myHightlight = [
     myTags: [],
     my_highlight: [],
     link: 'www.lifehack.org',
-    linkimg: 'https://getliner.com/src/images/favicon.svg',
+    linkImg: 'https://getliner.com/src/images/favicon.svg',
     date: 'Jul 1, 2021',
   },
 ];
