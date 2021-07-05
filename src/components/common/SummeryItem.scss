@@ -47,27 +47,26 @@
 
       .contents-highlight {
         font-size: 14px;
+        // display: box;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-top: 16px;
         width: 100%;
         font-weight: 400;
         line-height: 1.43;
         letter-spacing: normal;
         color: #555;
         word-wrap: break-word;
-        .highlight-border{
 
-        }
-        .hightlight-content{
-          
+        &.contents-highlight-foryou {
+          margin-top: 16px;
         }
       }
     }
 
-    // .summeryitem-main-imgContainer {
-
+    .summeryitem-main-imgContainer {
+height: 107px;
     .main-imgContainer-img {
+      flex-shrink: 0;
       width: 96px;
       height: 96px;
       border-radius: 4px;
@@ -76,7 +75,7 @@
       // flex-shrink: 0;
     }
 
-    // }
+    }
 
   }
 
@@ -143,7 +142,7 @@
       .summary-bottom__right {
         .summary-bottom__right-btn {
           display: flex;
-
+          align-items: center;
           &.foryou-btn {}
 
           &.myHigh-btn {}
@@ -155,8 +154,170 @@
   }
 
   .border-seperator {
-    height: 8px;
     border-bottom: 1px solid #eef1f4;
   }
 
+}
+
+// MY HIGHLIGHT
+// Summary main
+.contents-highlight-myHi {
+  margin-bottom: 16px;
+  overflow-x: hidden;
+
+  .my-highlight__container {
+    display: flex;
+    padding-top: 8px;
+
+    &:first-child {
+      padding-top: 0px;
+
+    }
+
+
+    .highlight-border {
+      border-width: 0 0 0 4px;
+      border-style: solid;
+      margin: 2px 0;
+    }
+
+    .hightlight-content {
+      margin: 0 16px;
+      font-size: 14px;
+      width: 100%;
+      font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: #555;
+      word-wrap: break-word;
+      background-color: transparent;
+    }
+  }
+
+  .my_highlight-nohightlight {}
+}
+
+// MyHi Tag
+.myHi-summeryitem-main {
+  
+  .myHi-hover-check {
+    opacity: 0;
+    font-size: 19px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    right: 22px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    z-index: 0;
+    cursor: pointer;
+    background-color: #b0b4bd;
+  }
+
+  &:hover {
+    .myHi-hover-check {
+      opacity: 1;
+    }
+  }
+
+
+}
+
+.mytags-container {
+  display: flex;
+
+  .tag-icon {
+    background-image: url(https://getliner.com/src/images/tag-icon.svg);
+    width: 20px;
+    height: 20px;
+    margin: 2px 8px 12px 0;
+    display: inline-block;
+  }
+
+  .mytags-contant {
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f6f8fa;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 18px;
+    font-size: 12px;
+    letter-spacing: -.3px;
+    color: #787d86;
+    height: 24px;
+    margin: 0 8px 6px 0;
+    padding: 3px 6px;
+    min-width: 48px;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+
+    .mytags-li {
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      font-size: 12px;
+      letter-spacing: -.3px;
+      color: #787d86;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+  }
+
+  .editTag {
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: -.3;
+    color: #b0b4bd;
+    border-radius: 4px;
+    margin: 0 0 6px;
+    padding: 0 6px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #f6f8fa;
+    }
+  }
+}
+
+.myHi-summary-bottom__left {
+  display: flex;
+
+  .date {
+    display: flex;
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 400;
+    align-items: center;
+
+    .vertical-line {
+      border-left: 1px solid #777;
+      height: 10px;
+      margin: 0 6px;
+    }
+  }
 }

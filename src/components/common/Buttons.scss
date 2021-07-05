@@ -1,3 +1,6 @@
+//*** COMMON ***
+// 클릭할 버튼에 적용
+
 .btn {
   width: 32px;
   height: 32px;
@@ -5,13 +8,232 @@
   background-repeat: no-repeat;
   background-position: 50%;
   border-radius: 50%;
+
+  &:hover {
+    background-color: #f6f8fa;
+  }
 }
+
+.close {
+  background-image: url(../../assets/svg/close-be-comment.svg);
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: -4px;
+  margin-bottom: -3px;
+
+  &:hover {
+    background-color: #f6f8fa;
+  }
+}
+
+// BTN HOVER NAME
+.btn-hover-name__container {
+  display: flex;
+  justify-content: center;
+  width: 38px;
+  height: 17px;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  border-radius: 2px;
+  align-items: center;
+  position: absolute;
+  top: -18px;
+  background-color: #555;
+  opacity: 1;
+
+  .btn-hover-name__name {
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// --------------
+// **BTN MODAL
+.btn-modal__container {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, .3);
+  left: 0;
+  z-index: 99;
+  top: 0;
+  overflow-y: hidden;
+  box-sizing: border-box;
+
+  .btn-modal__content {
+    box-sizing: border-box;
+    width: 480px;
+    border-radius: 16px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// BTN MODAL-titleline
+.btn-modal__titleline {
+  padding: 0 12px 0 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .btn-modal__titleline__title {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -.6px;
+    color: #272b31;
+  }
+
+  .btn-modal__titleline__close {
+    background-image: url(../../assets/svg/close-be-comment.svg);
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: -4px;
+    margin-bottom: -3px;
+
+    &:hover {
+      background-color: #f6f8fa;
+    }
+  }
+}
+
+// --------------
+// **BTN DROPDOWN
+.btn-with-dropdown__container {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  .dropdown-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .dropdown-hover-name {
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: #f6f8fa;
+
+    .dropdown-hover-name {
+      opacity: 1;
+    }
+  }
+}
+
+.btn-dropdown__container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 34px;
+  min-width: 224px;
+  width: max-content;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 0 rgba(39, 43, 49, 0.1);
+  border: 1px solid #eef1f4;
+  background-color: #fff;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.btn-dropdown__li {
+  box-sizing: border-box;
+  height: 40px;
+  background-color: #fff;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -.35px;
+  color: #52565d;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f6f8fa;
+  }
+}
+
+.btn-dropdown__li__icon {
+  img {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+}
+
+// ===============
+// *** Individual css
+
+// .btn-hover-box {
+//   position: absolute;
+//   width: 32px;
+//   height: 32px;
+//   display: flex;
+//   justify-content: center;
+
+
+//   &:hover {
+//     .btn-hover-name__container {
+//       opacity: 1;
+//     }
+//   }
+// }
 
 // Save btn
 .save-container {
   position: relative;
   display: flex;
   align-items: flex-end;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+
+  .dropdown-hover-name {
+    opacity: 0;
+  }
+
+  &:hover {
+    .dropdown-hover-name {
+      opacity: 1;
+    }
+  }
 
   .addTags {
     font-weight: 500;
@@ -25,9 +247,6 @@
     margin: 3px 4px 3px 0;
     text-align: right;
 
-    &:hover {
-      background-color: #f6f8fa;
-    }
   }
 
   .save-btn--checked {
@@ -35,6 +254,7 @@
   }
 
   .save-btn {
+    z-index: 1;
     background-image: url(../../assets/svg/save.svg);
 
   }
@@ -43,88 +263,50 @@
 // Share
 .share-container {
   font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+  width: 32px;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+
+  .dropdown-hover-name {
+    opacity: 0;
+  }
+
+  &:hover {
+    .dropdown-hover-name {
+      opacity: 1;
+    }
+  }
 
   // check 후 modal
   .share-modal-container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0, 0, 0, .3);
-    left: 0;
-    z-index: 99;
-    top: 0;
-    overflow-y: hidden;
-    box-sizing: border-box;
 
-    .share-modal-content {
-      box-sizing: border-box;
-      width: 480px;
-      border-radius: 16px;
-      background-color: #fff;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px 16px;
+    .sns-container {
       display: flex;
-      flex-direction: column;
+      border-bottom: 1px solid #eee;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      box-sizing: border-box;
 
-      .titleline {
-        padding: 0 12px 0 16px;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        h3 {
-          font-weight: 700;
-          font-size: 24px;
-          letter-spacing: -.6px;
-          color: #272b31;
+      .sns-button {
+        img {
+          width: 36px;
+          height: 36px;
+          margin-left: 16px;
+          vertical-align: middle;
         }
 
-        .close {
-          background-image: url(../../assets/svg/close-be-comment.svg);
-          width: 32px;
-          height: 32px;
-          background-size: 32px;
-          background-repeat: no-repeat;
-          background-position: 50%;
-          border-radius: 50%;
-          margin-left: auto;
-          margin-right: -4px;
-          margin-bottom: -3px;
-
-          &:hover {
-            background-color: #f6f8fa;
-          }
-        }
-      }
-
-      .sns-container {
-        display: flex;
-        border-bottom: 1px solid #eee;
-        padding-top: 24px;
-        padding-bottom: 24px;
-        box-sizing: border-box;
-
-        .sns-button {
-          img {
-            width: 36px;
-            height: 36px;
-            margin-left: 16px;
-            vertical-align: middle;
-          }
-
-          p {
-            position: absolute;
-            text-indent: -9999px;
-          }
+        p {
+          position: absolute;
+          text-indent: -9999px;
         }
       }
     }
-
   }
+
+
 
   .share-bottom {
     padding-left: 16px;
@@ -184,8 +366,110 @@
 }
 
 // More
-.more-container {
+.more-btn {
+  background-image: url(../../assets/svg/more-light.svg);
+}
+
+// EXTEND
+.expand {
+  background-image: url(../../assets/svg/expand-grey.svg);
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-left: 4px;
+}
+
+// COLLPASE
+.collapse {
+  background-image: url(../../assets/svg/collapse.svg);
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-left: 4px;
+}
+
+
+//MyShare
+.my-edit-container {
   position: relative;
+}
+
+// myHi Export
+.export-container {
+  .export-btn {
+    background-image: url(https://getliner.com/src/images/export-header.svg);
+  }
+  .export-modal__container{
+    width: 400px;
+    min-height: 179px;
+  }
+.myexport-titleline{
+  margin-bottom: 16px;
+}
+  .myexport-modal-subtitle {
+    display: flex;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: -.35px;
+    color: #787d86;
+  }
+
+  .myexport-buttons__container {
+    margin-left: 8px;
+    padding-bottom: 12px;
+    padding-top: 24px;
+    display: flex;
+    box-sizing: border-box;
+
+    .export-button__container {
+      width: 53px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 16px;
+
+      .export-button__btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .export-button__btn__img {
+          width: 36px;
+          height: 36px;
+          vertical-align: middle;
+        }
+      }
+
+      .btn-name {
+        font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -.3px;
+        text-align: center;
+        color: #787d86;
+        display: block;
+        margin-top: 8px;
+      }
+    }
+
+  }
+}
+
+// My More
+.my-more-container {
+  position: relative;
+
   .more-btn {
     background-image: url(../../assets/svg/more-light.svg);
   }
@@ -204,11 +488,12 @@
     background-color: #fff;
     padding: 8px 0;
     margin: 0;
+
     .dropdown-li {
       box-sizing: border-box;
       height: 40px;
       background-color: #fff;
-      font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
       font-size: 14px;
       font-weight: 400;
       letter-spacing: -.35px;
@@ -217,42 +502,21 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         background-color: #f6f8fa;
       }
-      &.more-container {}
-
-      &.fewer-container {}
-
-      &.hide-container {}
 
     }
 
     .icon {
-      img{
+      img {
         vertical-align: middle;
         width: 24px;
         height: 24px;
         margin-right: 8px;
       }
     }
-    
-  }
-}
 
-// EXTEND
-.expand {
-  background-image: url(../../assets/svg/expand-grey.svg);
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  margin-left: 4px;
-}
-// COLLPASE
-.collapse {
-  background-image: url(../../assets/svg/collapse.svg);
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  margin-left: 4px;
+  }
 }
