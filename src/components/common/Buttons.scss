@@ -1,6 +1,5 @@
 //*** COMMON ***
 // 클릭할 버튼에 적용
-
 .btn {
   width: 32px;
   height: 32px;
@@ -198,22 +197,6 @@
 
 // ===============
 // *** Individual css
-
-// .btn-hover-box {
-//   position: absolute;
-//   width: 32px;
-//   height: 32px;
-//   display: flex;
-//   justify-content: center;
-
-
-//   &:hover {
-//     .btn-hover-name__container {
-//       opacity: 1;
-//     }
-//   }
-// }
-
 // Save btn
 .save-container {
   position: relative;
@@ -470,53 +453,4 @@
 .my-more-container {
   position: relative;
 
-  .more-btn {
-    background-image: url(../../assets/svg/more-light.svg);
-  }
-
-  .more-dropdown-container {
-    box-sizing: border-box;
-    position: absolute;
-    top: 34px;
-    min-width: 224px;
-    width: max-content;
-    white-space: nowrap;
-    z-index: 2;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px 0 rgba(39, 43, 49, 0.1);
-    border: 1px solid #eef1f4;
-    background-color: #fff;
-    padding: 8px 0;
-    margin: 0;
-
-    .dropdown-li {
-      box-sizing: border-box;
-      height: 40px;
-      background-color: #fff;
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: -.35px;
-      color: #52565d;
-      padding: 8px 15px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #f6f8fa;
-      }
-
-    }
-
-    .icon {
-      img {
-        vertical-align: middle;
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
-      }
-    }
-
-  }
 }
