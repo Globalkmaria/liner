@@ -10,13 +10,17 @@ function RightRecomendationContents({ title, data }) {
       <div className="recommandation-contents-pages">
         {data.map((page, i) => (
           <div className="recommand-page" key={i}>
-            <div className="page-tags">
-              {page.tags.map((tag, i) => (
-                <span className="page-tag" key={i}>
-                  #{tag}
-                </span>
-              ))}
-            </div>
+            {page.tags.length ? (
+              <div className="page-tags">
+                {page.tags.map((tag, i) => (
+                  <span className="page-tag" key={i}>
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              ''
+            )}
             <h2 className="page-title">{page.title}</h2>
             <a className="page-link" href={page.link}>
               {page.link}
