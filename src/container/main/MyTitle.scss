@@ -133,7 +133,7 @@ $checked-color: #00bdb8;
       width: 82px;
       height: 40px;
       margin-left: auto;
-      margin-right: 16px;
+      // margin-right: 16px;
       border-radius: 8px;
       border: 1px solid #dde1e7;
       background-color: #fff;
@@ -239,215 +239,293 @@ $checked-color: #00bdb8;
       &.tab-highlights {
         background-color: #eef1f4;
       }
+
+      &.tab-tags:hover {
+        background-color: #f6f8fa;
+      }
     }
   }
 
-  // FILTER
-  .my-nav-filter {
-    display: inline;
-    position: relative;
+  .my-nav-right {
+    display: flex;
+    align-items: center;
+    width: 284px;
 
-    // FILTER-BTN
-    .filter-btn {
-      background-image: url(../../assets/svg/filter-header.svg);
-      width: 28px;
-      height: 28px;
-      background-size: 24px;
-      background-repeat: no-repeat;
-      background-position: 50%;
+    // FILTER
+    .my-nav-filter {
+      display: inline;
       position: relative;
-      top: 2px;
-    }
 
-    // FILTER-MODAL
-    .filter-modal-background {
-      font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
-        sans-serif;
-      z-index: 99;
-      top: 0;
-      overflow-y: hidden;
-      cursor: default;
+      // FILTER-BTN
+      .filter-btn {
+        background-image: url(../../assets/svg/filter-header.svg);
+        width: 28px;
+        height: 28px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        position: relative;
+        top: 2px;
+      }
 
-      // width: 100%;
-      // height: 100%;
-      // position: fixed;
-      // background-color: rgba(0,0,0,.3);
-      // left: 0;
-      // FILTER-MODAL__CONTAINER
-      .filter-modal-container {
-        box-sizing: border-box;
-        position: fixed;
-        width: 400px;
-        min-height: 179px;
-        border-radius: 16px;
-        padding: 20px 16px 16px;
+      // FILTER-MODAL
+      .filter-modal-background {
+        font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+          sans-serif;
+        z-index: 99;
+        top: 0;
+        overflow-y: hidden;
+        cursor: default;
 
-        .modal-title {
-          display: flex;
-          padding: 0 12px 0 16px;
-          font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP',
-            'Noto Sans SC', sans-serif;
-          font-weight: 700;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          font-size: 24px;
-          letter-spacing: -0.6px;
-          color: #272b31;
+        // width: 100%;
+        // height: 100%;
+        // position: fixed;
+        // background-color: rgba(0,0,0,.3);
+        // left: 0;
+        // FILTER-MODAL__CONTAINER
+        .filter-modal-container {
+          box-sizing: border-box;
+          position: fixed;
+          width: 400px;
+          min-height: 179px;
+          border-radius: 16px;
+          padding: 20px 16px 16px;
 
-          .close-btn {
-            width: 32px;
-            height: 32px;
-            background-size: 24px;
-            background-repeat: no-repeat;
-            background-position: 50%;
-            border-radius: 50%;
-            background-image: url(https://getliner.com/src/images/close-light.svg);
-            margin-left: auto;
-            margin-right: -4px;
-            margin-bottom: -3px;
-            float: right;
-          }
-        }
-
-        // list-style: none;
-        // position: absolute;
-        // border-radius: 8px;
-        // padding: 8px 0;
-        // z-index: 100;
-        // background-color: #fff;
-        // border: 1px solid #eef1f4;
-        // box-shadow: 0 10px 20px 0 rgba(39, 43, 49, 0.1);
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%,-50%);
-
-        .modal-items {
-          // FILTER-MODAL-COMMON
-          list-style: none;
-          margin-top: 8px;
-          padding: 0;
-
-          .item-title {
+          .modal-title {
+            display: flex;
+            padding: 0 12px 0 16px;
+            font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP',
+              'Noto Sans SC', sans-serif;
             font-weight: 700;
             font-stretch: normal;
             font-style: normal;
             line-height: normal;
-            font-size: 14px;
-            letter-spacing: -0.35px;
-            color: #969aa2;
-            margin-bottom: 16px;
-            margin-top: 24px;
-            margin-left: 16px;
-          }
+            font-size: 24px;
+            letter-spacing: -0.6px;
+            color: #272b31;
 
-          .item-content {}
-        }
-      }
-    }
-  }
-
-  // TAG
-  .tag-content {
-    width: 336px;
-    position: relative;
-    border-radius: 8px;
-    box-sizing: border-box;
-    margin: 0 auto;
-
-    .tag-input-container {
-      box-sizing: border-box;
-      background-color: rgb(246, 248, 250);
-      padding: 8px 4px;
-      border-radius: 8px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-
-      img {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        vertical-align: middle;
-      }
-
-      .selected-tags {
-        margin-left: 36px;
-        display: flex;
-        flex-direction: row;
-        right: 0;
-
-        .tag-input {
-          border: none;
-          min-width: 70px;
-          font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
-            sans-serif;
-          font-size: 14px;
-          font-weight: 400;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.35px;
-          color: #555;
-          height: 24px;
-        }
-      }
-    }
-
-    .tag-dropdown {
-      position: absolute;
-      height: 200px;
-      border-radius: 8px;
-      padding: 8px 0;
-      width: 336px;
-      border: 1px solid #eef1f4;
-      margin-top: 4px;
-      top: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      span {
-        color: #52565d;
-        opacity: 0.3;
-        font-size: 14px;
-      }
-    }
-  }
-
-  // COLOR FILTER
-  .colors {
-    ul {
-      .color {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 368px;
-        border-radius: 8px;
-
-        .about-color {
-          width: 100%;
-          height: 32px;
-          align-items: center;
-          display: flex;
-
-          .pallete {
-            width: 20px;
-            height: 20px;
-            margin-left: 16px;
-            display: flex;
-            border-radius: 50%;
-            justify-content: center;
-            align-items: center;
-
-            .locked {
-              width: 8px;
-              height: 10px;
-              vertical-align: middle;
+            .close-btn {
+              width: 32px;
+              height: 32px;
+              background-size: 24px;
+              background-repeat: no-repeat;
+              background-position: 50%;
+              border-radius: 50%;
+              background-image: url(https://getliner.com/src/images/close-light.svg);
+              margin-left: auto;
+              margin-right: -4px;
+              margin-bottom: -3px;
+              float: right;
             }
           }
 
-          .name {
+          // list-style: none;
+          // position: absolute;
+          // border-radius: 8px;
+          // padding: 8px 0;
+          // z-index: 100;
+          // background-color: #fff;
+          // border: 1px solid #eef1f4;
+          // box-shadow: 0 10px 20px 0 rgba(39, 43, 49, 0.1);
+          // top: 50%;
+          // left: 50%;
+          // transform: translate(-50%,-50%);
+
+          .modal-items {
+            // FILTER-MODAL-COMMON
+            list-style: none;
+            margin-top: 8px;
+            padding: 0;
+
+            .item-title {
+              font-weight: 700;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              font-size: 14px;
+              letter-spacing: -0.35px;
+              color: #969aa2;
+              margin-bottom: 16px;
+              margin-top: 24px;
+              margin-left: 16px;
+            }
+
+            .item-content {}
+          }
+        }
+      }
+    }
+
+    // TAG
+    .tag-content {
+      width: 336px;
+      position: relative;
+      border-radius: 8px;
+      box-sizing: border-box;
+      margin: 0 auto;
+
+      .tag-input-container {
+        box-sizing: border-box;
+        background-color: rgb(246, 248, 250);
+        padding: 8px 4px;
+        border-radius: 8px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+        img {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          vertical-align: middle;
+        }
+
+        .selected-tags {
+          margin-left: 36px;
+          display: flex;
+          flex-direction: row;
+          right: 0;
+
+          .tag-input {
+            border: none;
+            min-width: 70px;
+            font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+              sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.35px;
+            color: #555;
+            height: 24px;
+          }
+        }
+      }
+
+      .tag-dropdown {
+        position: absolute;
+        height: 200px;
+        border-radius: 8px;
+        padding: 8px 0;
+        width: 336px;
+        border: 1px solid #eef1f4;
+        margin-top: 4px;
+        top: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          color: #52565d;
+          opacity: 0.3;
+          font-size: 14px;
+        }
+      }
+    }
+
+    // COLOR FILTER
+    .colors {
+      ul {
+        .color {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 368px;
+          border-radius: 8px;
+
+          .about-color {
+            width: 100%;
+            height: 32px;
+            align-items: center;
+            display: flex;
+
+            .pallete {
+              width: 20px;
+              height: 20px;
+              margin-left: 16px;
+              display: flex;
+              border-radius: 50%;
+              justify-content: center;
+              align-items: center;
+
+              .locked {
+                width: 8px;
+                height: 10px;
+                vertical-align: middle;
+              }
+            }
+
+            .name {
+              font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP',
+                'Noto Sans SC', sans-serif;
+              font-size: 14px;
+              font-weight: 400;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 20px;
+              letter-spacing: -0.35px;
+              color: #52565d;
+              margin-left: 16px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              flex-shrink: 1;
+
+              &.name--locked {
+                color: rgba(82, 86, 93, 0.3);
+              }
+
+              &.name--checked {
+                color: $checked-color;
+              }
+            }
+          }
+
+          &.color-unlocked:hover {
+            cursor: pointer;
+            background-color: #f6f8fa;
+          }
+
+          &.color-locked {
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    // PAGE TYPE
+    .pageType-content {
+      display: flex;
+      flex-direction: column;
+      width: 368px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      .pageType-option-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f6f8fa;
+          border-radius: 8px;
+        }
+
+        .option-header {
+          display: flex;
+          align-items: center;
+
+          .option-header-icon {
+            width: 20px;
+            margin-left: 16px;
+            height: 20px;
+          }
+
+          .type-name {
+            margin-left: 16px;
             font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP',
               'Noto Sans SC', sans-serif;
             font-size: 14px;
@@ -457,128 +535,231 @@ $checked-color: #00bdb8;
             line-height: 20px;
             letter-spacing: -0.35px;
             color: #52565d;
-            margin-left: 16px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            flex-shrink: 1;
 
-            &.name--locked {
-              color: rgba(82, 86, 93, 0.3);
-            }
-
-            &.name--checked {
+            &.type-name--checked {
               color: $checked-color;
             }
           }
         }
+      }
+    }
 
-        &.color-unlocked:hover {
-          cursor: pointer;
+    .seperator {
+      width: 368px;
+      height: 1px;
+      margin: 16px 0 7px;
+      border: 1px solid #eef1f4;
+    }
+
+    .modal-footer {
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      height: 40px;
+
+      .reset {
+        font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+          sans-serif;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 24px;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: -0.35px;
+        color: #787d86;
+        border-radius: 8px;
+        padding: 8px 12px;
+
+        &:hover {
           background-color: #f6f8fa;
         }
+      }
 
-        &.color-locked {
-          cursor: default;
+      .apply {
+        font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+          sans-serif;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 24px;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: -0.4px;
+        color: #00bdb8;
+        margin-left: auto;
+        padding: 8px 12px;
+        border-radius: 8px;
+
+        &:hover {
+          background-color: #e5f8f7;
         }
       }
     }
-  }
 
-  // PAGE TYPE
-  .pageType-content {
-    display: flex;
-    flex-direction: column;
-    width: 368px;
-    border-radius: 8px;
-    cursor: pointer;
-
-    .pageType-option-container {
-      display: flex;
-      align-items: center;
+    // SEARCH
+    .my-nav-search {
       width: 100%;
-      height: 32px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #f6f8fa;
-        border-radius: 8px;
-      }
-
-      .option-header {
+      position: relative;
+      .search-content {
+        width: 100%;
         display: flex;
-        align-items: center;
 
-        .option-header-icon {
-          width: 20px;
-          margin-left: 16px;
-          height: 20px;
+        .search-option {
+          position: relative;
+          .search-option-btn {
+            font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP',
+              'Noto Sans SC', sans-serif;
+            height: 32px;
+            font-size: 12px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: -0.3px;
+            color: #787d86;
+            padding: 7px 0;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+
+            .search-option-title {
+              margin-left: 8px;
+              // font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+            }
+          }
+
+          // SEARCH OPTION DROPDOWN
+          .search-dropdown {
+            position: absolute;
+            top: 161px;
+            left: 127px;
+            min-width: 224px;
+            padding: 8px 0;
+            box-sizing: border-box;
+
+            .search-dropdown-title {
+              box-sizing: border-box;
+              font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+              font-size: 14px;
+              font-weight: 700;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -.35px;
+              color: #969aa2;
+              height: 34px;
+              width: 100%;
+              cursor: default;
+              padding: 8px 15px;
+              display: flex;
+              align-items: center;
+            }
+
+            .option-li {
+              box-sizing: border-box;
+              height: 40px;
+              background-color: #fff;
+              padding: 8px 15px;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+              font-size: 14px;
+              font-weight: 400;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -.35px;
+              color: #52565d;
+              &:hover{
+                background-color: #f6f8fa;
+              }
+              .option-check{
+                color: $checked-color;
+                font-weight: 500;
+              }
+            }
+          }
+
+
+
+
         }
 
-        .type-name {
+        .search-input-container {
+          border: 1px solid #c6cbd3;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
           margin-left: 16px;
-          font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-          font-size: 14px;
-          font-weight: 400;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 20px;
-          letter-spacing: -.35px;
-          color: #52565d;
+          height: 32px;
+          border-radius: 8px;
+          box-sizing: border-box;
 
-          &.type-name--checked {
-            color: $checked-color;
+          .input-wrapper {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .search-input {
+              box-sizing: border-box;
+              border: none;
+              appearance: none;
+              width: calc(100% - 34px);
+              height: 100%;
+              flex-shrink: 1;
+              font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP',
+                'Noto Sans SC', sans-serif;
+              font-size: 14px;
+              font-weight: 400;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 18px;
+              letter-spacing: normal;
+              color: #555;
+              padding: 8px 16px;
+            }
+
+            .search-btn {
+              background-size: 24px;
+              background-repeat: no-repeat;
+              background-position: 50%;
+              border-radius: 50%;
+
+              width: 28px;
+              height: 28px;
+              margin-left: auto;
+              margin-right: 6px;
+
+              &.search {
+                background-image: url(https://getliner.com/src/images/search-header.svg);
+              }
+
+              &.close {
+                background-image: url(https://getliner.com/src/images/cancel-search-header.svg);
+              }
+            }
           }
         }
       }
-    }
-  }
 
-  .seperator {
-    width: 368px;
-    height: 1px;
-    margin: 16px 0 7px;
-    border: 1px solid #eef1f4;
-  }
-
-  .modal-footer {
-    padding: 0 4px;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    
-    .reset {
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 24px;
-      font-weight: 500;
-      font-size: 14px;
-      letter-spacing: -.35px;
-      color: #787d86;
-      border-radius: 8px;
-      padding: 8px 12px;
-      
-      &:hover {
-        background-color: #f6f8fa;
-      }
-    }
-    
-    .apply {
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 24px;
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: -.4px;
-      color: #00bdb8;
-      margin-left: auto;
-      padding: 8px 12px;
-      border-radius: 8px;
-
-      &:hover {
-        background-color: #e5f8f7;
+      .search-description {
+        font-family: 'Montserrat', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC',
+          sans-serif;
+        display: flex;
+        font-weight: 400;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        color: #969aa2;
+        height: 34px;
+        align-items: center;
+        padding-left: 16px;
+        font-size: 12px;
+        letter-spacing: -0.3px;
       }
     }
   }

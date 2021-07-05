@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import { CollapseBtn, ExtendBtn } from '../../components/common/Buttons';
 import './MyTitle.scss';
 function MyTitle() {
   const [scroll, setscroll] = useState(false);
@@ -57,6 +58,18 @@ function MyTitle() {
   };
 
   // Search
+  const [searchOptionOpen, setSearchOptionOpen] = useState(false);
+  const onSearchOption = () => {
+    setSearchOptionOpen(!searchOptionOpen);
+  };
+  const [searchFocus, setSearchFocus] = useState(false);
+  const onSearchFocus = () => {
+    setSearchFocus(true);
+  };
+  const onSearchBlur = (e) => {
+    e.stopPropagation();
+    setSearchFocus(false);
+  };
   const search_option = ['Title', 'URL', 'Highlight', 'Description', 'Comment'];
   const [searchOption, setSearchOption] = useState(
     Array(search_option.length).fill(true)
@@ -128,189 +141,270 @@ function MyTitle() {
       {/*  sticky */}
       <div className="my-title-nav">
         {/* TABS */}
-        <div className="my-nav-tab">
-          <a href="#" className="tab-item tab-highlights">
-            Highlights
-          </a>
-          <a href="#" className="tab-item tab-tags">
-            Tags
-          </a>
-        </div>
-        {/* FILTER */}
-        <div className="my-nav-filter">
-          <button
-            className="filter-btn btn icon-hover"
-            onClick={onFilterModal}
-          ></button>
-          {/* modal */}
-          {openFilterModal && (
-            <div className="filter-modal-background modal">
-              <div className="filter-modal-container modal-container">
-                <h2 className="modal-title">
-                  Filter
-                  <button
-                    className="close-btn icon-hover"
-                    onClick={onFilterModal}
-                  ></button>
-                </h2>
+        {!searchFocus && (
+          <div className="my-nav-tab">
+            <a href="#" className="tab-item tab-highlights">
+              Highlights
+            </a>
+            <a href="#" className="tab-item tab-tags">
+              Tags
+            </a>
+          </div>
+        )}
+        <div
+          className="my-nav-right"
+          style={!searchFocus ? { width: '284px' } : { width: '100%' }}
+        >
+          {/* FILTER */}
+          {!searchFocus && (
+            <div className="my-nav-filter">
+              <button
+                className="filter-btn btn icon-hover"
+                onClick={onFilterModal}
+              ></button>
+              {/* modal */}
+              {openFilterModal && (
+                <div className="filter-modal-background modal">
+                  <div className="filter-modal-container modal-container">
+                    <h2 className="modal-title">
+                      Filter
+                      <button
+                        className="close-btn icon-hover"
+                        onClick={onFilterModal}
+                      ></button>
+                    </h2>
 
-                <div className="modal-items">
-                  {/* Tags */}
-                  <div className="modal-item">
-                    <h3 className="item-title">Tags</h3>
-                    <div className="item-content tag-content">
-                      <div className="tag-input-container">
-                        <img
-                          src="https://getliner.com/src/images/tag-small.svg"
-                          alt="tag icon"
-                          className="tag-icon"
-                        />
-                        <div className="selected-tags">
-                          {/* selected tags */}
-                          <input
-                            type="text"
-                            className="tag-input"
-                            placeholder="Search tags"
-                            onBlur={onTagInput}
-                            onFocus={onTagInput}
-                          />
+                    <div className="modal-items">
+                      {/* Tags */}
+                      <div className="modal-item">
+                        <h3 className="item-title">Tags</h3>
+                        <div className="item-content tag-content">
+                          <div className="tag-input-container">
+                            <img
+                              src="https://getliner.com/src/images/tag-small.svg"
+                              alt="tag icon"
+                              className="tag-icon"
+                            />
+                            <div className="selected-tags">
+                              {/* selected tags */}
+                              <input
+                                type="text"
+                                className="tag-input"
+                                placeholder="Search tags"
+                                onBlur={onTagInput}
+                                onFocus={onTagInput}
+                              />
+                            </div>
+                          </div>
+                          {tagModal && (
+                            <div className="tag-dropdown modal-container">
+                              <span>No Tags</span>
+                            </div>
+                          )}
                         </div>
                       </div>
-                      {tagModal && (
-                        <div className="tag-dropdown modal-container">
-                          <span>No Tags</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="modal-item colors">
-                    {/* Color Filter */}
-                    <h3 className="item-title">Color Filter</h3>
-                    <ul className="item-content">
-                      {colors.map((color, i) => (
-                        <li
-                          className={`color ${
-                            color.locked ? 'color-locked' : 'color-unlocked'
-                          }`}
-                          key={i}
-                        >
-                          <div
-                            className="about-color"
-                            id={i}
-                            onClick={(e) => onColorChecked(e)}
-                          >
-                            <span
-                              className="pallete"
-                              style={{ backgroundColor: `${color.rgb}` }}
+                      <div className="modal-item colors">
+                        {/* Color Filter */}
+                        <h3 className="item-title">Color Filter</h3>
+                        <ul className="item-content">
+                          {colors.map((color, i) => (
+                            <li
+                              className={`color ${
+                                color.locked ? 'color-locked' : 'color-unlocked'
+                              }`}
+                              key={i}
                             >
-                              {color.locked && (
+                              <div
+                                className="about-color"
+                                id={i}
+                                onClick={(e) => onColorChecked(e)}
+                              >
+                                <span
+                                  className="pallete"
+                                  style={{ backgroundColor: `${color.rgb}` }}
+                                >
+                                  {color.locked && (
+                                    <img
+                                      src="https://getliner.com/src/images/lock-tooltip.svg"
+                                      className="locked"
+                                      alt="locked"
+                                    />
+                                  )}
+                                </span>
+                                <span
+                                  className={`name ${
+                                    color.locked ? 'name--locked' : ''
+                                  } ${colorChecked[i] ? 'name--checked' : ''}`}
+                                >
+                                  {color.name}
+                                </span>
+                              </div>
+                              <div className="selected">
+                                {colorChecked[i] && (
+                                  <span className="checked"></span>
+                                )}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="modal-item">
+                        {/* Page type */}
+                        <h3 className="item-title ">Page type</h3>
+                        <ul className="item-content pageType-content">
+                          <li
+                            className="pageType-option-container"
+                            id="0"
+                            onClick={(e) => onPageTypeCheck(e)}
+                          >
+                            <span className="option-header">
+                              {pageType[0] ? (
                                 <img
-                                  src="https://getliner.com/src/images/lock-tooltip.svg"
-                                  className="locked"
-                                  alt="locked"
+                                  src="https://getliner.com/src/images/web-filter-selected.svg"
+                                  alt="web checked icon"
+                                  className="option-header-icon"
+                                />
+                              ) : (
+                                <img
+                                  src="https://getliner.com/src/images/web-filter.svg"
+                                  alt="web"
+                                  className="option-header-icon"
                                 />
                               )}
+                              <span
+                                className={`type-name ${
+                                  pageType[0] ? 'type-name--checked' : ''
+                                }`}
+                              >
+                                Web
+                              </span>
                             </span>
-                            <span
-                              className={`name ${
-                                color.locked ? 'name--locked' : ''
-                              } ${colorChecked[i] ? 'name--checked' : ''}`}
-                            >
-                              {color.name}
-                            </span>
-                          </div>
-                          <div className="selected">
-                            {colorChecked[i] && (
-                              <span className="checked"></span>
+                            {pageType[0] && (
+                              <div className="selected">
+                                <span className="checked"></span>
+                              </div>
                             )}
-                          </div>
+                          </li>
+                          <li
+                            className="pageType-option-container"
+                            id="1"
+                            onClick={(e) => onPageTypeCheck(e)}
+                          >
+                            <span className="option-header">
+                              {pageType[1] ? (
+                                <img
+                                  src="https://getliner.com/src/images/pdf-filter-selected.svg"
+                                  alt="pdf-checked"
+                                  className="option-header-icon"
+                                />
+                              ) : (
+                                <img
+                                  src="https://getliner.com/src/images/pdf-filter.svg"
+                                  alt="pdf"
+                                  className="option-header-icon"
+                                />
+                              )}
+                              <span
+                                className={`type-name ${
+                                  pageType[1] ? 'type-name--checked' : ''
+                                }`}
+                              >
+                                PDF
+                              </span>
+                            </span>
+                            {pageType[1] && (
+                              <div className="selected">
+                                <span className="checked"></span>
+                              </div>
+                            )}
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="seperator"></div>
+                      <div className="modal-footer">
+                        <button className="reset">Reset</button>
+                        <button className="apply" onClick={onFilterModal}>
+                          Apply
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          {/* SEARCH */}
+          <div className="my-nav-search">
+            <form className="search-content">
+              {searchFocus && (
+                <div className="search-option">
+                  <button
+                    className="search-option-btn"
+                    onClick={onSearchOption}
+                  >
+                    <span className="search-option-title">Search Option</span>
+                    {searchOptionOpen ? <CollapseBtn /> : <ExtendBtn />}
+                  </button>
+                  {/* search dropdown */}
+                  {searchOptionOpen && (
+                    <ul className="modal-container search-dropdown">
+                      <span
+                        className="search-dropdown-title modal-subtitle"
+                        onClick={onSearchOption}
+                      >
+                        Search Option
+                      </span>
+
+                      {search_option.map((option, i) => (
+                        <li
+                          className="option-li "
+                          key={i}
+                          id={i}
+                          onClick={(e) => onSearchOptionCheck(e)}
+                        >
+                          <span
+                            className={`${
+                              searchOption[i] ? 'option-check' : ''
+                            }`}
+                          >
+                            {option}
+                          </span>
+                          {searchOption[i] && (
+                            <div className="selected">
+                              <span className="checked"></span>
+                            </div>
+                          )}
                         </li>
                       ))}
                     </ul>
-                  </div>
-                  <div className="modal-item">
-                    {/* Page type */}
-                    <h3 className="item-title ">Page type</h3>
-                    <ul className="item-content pageType-content">
-                      <li
-                        className="pageType-option-container"
-                        id="0"
-                        onClick={(e) => onPageTypeCheck(e)}
-                      >
-                        <span className="option-header">
-                          {pageType[0] ? (
-                            <img
-                              src="https://getliner.com/src/images/web-filter-selected.svg"
-                              alt="web checked icon"
-                              className="option-header-icon"
-                            />
-                          ) : (
-                            <img
-                              src="https://getliner.com/src/images/web-filter.svg"
-                              alt="web"
-                              className="option-header-icon"
-                            />
-                          )}
-                          <span
-                            className={`type-name ${
-                              pageType[0] ? 'type-name--checked' : ''
-                            }`}
-                          >
-                            Web
-                          </span>
-                        </span>
-                        {pageType[0] && (
-                          <div className="selected">
-                            <span className="checked"></span>
-                          </div>
-                        )}
-                      </li>
-                      <li
-                        className="pageType-option-container"
-                        id="1"
-                        onClick={(e) => onPageTypeCheck(e)}
-                      >
-                        <span className="option-header">
-                          {pageType[1] ? (
-                            <img
-                              src="https://getliner.com/src/images/pdf-filter-selected.svg"
-                              alt="pdf-checked"
-                              className="option-header-icon"
-                            />
-                          ) : (
-                            <img
-                              src="https://getliner.com/src/images/pdf-filter.svg"
-                              alt="pdf"
-                              className="option-header-icon"
-                            />
-                          )}
-                          <span
-                            className={`type-name ${
-                              pageType[1] ? 'type-name--checked' : ''
-                            }`}
-                          >
-                            PDF
-                          </span>
-                        </span>
-                        {pageType[1] && (
-                          <div className="selected">
-                            <span className="checked"></span>
-                          </div>
-                        )}
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="seperator"></div>
-                  <div className="modal-footer">
-                    <button className="reset">Reset</button>
-                    <button className="apply" onClick={onFilterModal}>
-                      Apply
-                    </button>
-                  </div>
+                  )}
+                </div>
+              )}
+              <div className="search-input-container" onClick={onSearchFocus}>
+                <div className="input-wrapper">
+                  <input
+                    className="search-input"
+                    type="text"
+                    placeholder="Search my highlights"
+                  />
+                  {/* close / search icon */}
+                  {!searchFocus ? (
+                    <button className="search search-btn icon-hover"></button>
+                  ) : (
+                    <button
+                      className="close search-btn icon-hover"
+                      onClick={(e) => onSearchBlur(e)}
+                    ></button>
+                  )}
                 </div>
               </div>
-            </div>
-          )}
+            </form>
+            {searchFocus && (
+              <span className="search-description">
+                Search results from my highlights
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </>
