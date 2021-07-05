@@ -1,0 +1,22 @@
+.summeryitem-siteTags {
+  margin-bottom: 4px;
+  height: 21px;
+  max-width: 560px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  .siteTag {
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: -.3px;
+    color: #00bdb8;
+    display: inline-block;
+    margin: 0 6px 0 0;
+    padding: 0;
+    height: 21px;
+    background: transparent;
+    cursor: pointer;
+  }
+}

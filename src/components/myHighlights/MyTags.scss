@@ -1,0 +1,71 @@
+.mytags-container {
+  display: flex;
+
+  .tag-icon {
+    background-image: url(https://getliner.com/src/images/tag-icon.svg);
+    width: 20px;
+    height: 20px;
+    margin: 2px 8px 12px 0;
+    display: inline-block;
+  }
+
+  .mytags-contant {
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f6f8fa;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 18px;
+    font-size: 12px;
+    letter-spacing: -.3px;
+    color: #787d86;
+    height: 24px;
+    margin: 0 8px 6px 0;
+    padding: 3px 6px;
+    min-width: 48px;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+
+    .mytags-li {
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      font-size: 12px;
+      letter-spacing: -.3px;
+      color: #787d86;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+  }
+
+  .editTag {
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: -.3;
+    color: #b0b4bd;
+    border-radius: 4px;
+    margin: 0 0 6px;
+    padding: 0 6px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #f6f8fa;
+    }
+  }
+}

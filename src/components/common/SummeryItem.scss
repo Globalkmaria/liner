@@ -5,30 +5,6 @@
   width: 712px;
   position: relative;
 
-  // foryou (option) Tags
-  .summeryitem-siteTags {
-    margin-bottom: 4px;
-    height: 21px;
-    max-width: 560px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    .siteTag {
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-weight: 600;
-      line-height: 1.5;
-      font-size: 12px;
-      letter-spacing: -.3px;
-      color: #00bdb8;
-      display: inline-block;
-      margin: 0 6px 0 0;
-      padding: 0;
-      height: 21px;
-      background: transparent;
-      cursor: pointer;
-    }
-  }
-
   // * Main Part
   .summeryitem-main {
     display: flex;
@@ -64,19 +40,17 @@
     }
 
     .summeryitem-main-imgContainer {
-height: 107px;
-    .main-imgContainer-img {
-      flex-shrink: 0;
-      width: 96px;
-      height: 96px;
-      border-radius: 4px;
-      margin-left: 24px;
-      object-fit: cover;
-      // flex-shrink: 0;
+      height: 107px;
+      .main-imgContainer-img {
+        flex-shrink: 0;
+        width: 96px;
+        height: 96px;
+        border-radius: 4px;
+        margin-left: 24px;
+        object-fit: cover;
+        // flex-shrink: 0;
+      }
     }
-
-    }
-
   }
 
   // * Bottom Part
@@ -88,17 +62,6 @@ height: 107px;
     width: 680px;
     padding-bottom: 16px;
 
-    // foryou (option)
-    .mytags-container {
-      .mytags-contant {
-        .mytags-li {}
-
-      }
-
-      .editTag {}
-
-    }
-
     .summary-bottom-container {
       width: 100%;
       display: inline-flex;
@@ -108,34 +71,7 @@ height: 107px;
 
       // * Bottom Left Part
       .summary-bottom__left {
-        .linkline-container {
-          display: flex;
 
-          .linkline-containe__img {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            object-fit: cover;
-          }
-
-          .linkline-container__source {
-            margin-left: 14px;
-
-            .linkline-container__source__a {
-              color: #777;
-              font-size: 11px;
-              text-decoration: underline;
-              font-weight: 500;
-              cursor: pointer;
-              line-height: 1.5;
-              font-family: 'Roboto', sans-serif;
-            }
-          }
-
-        }
-
-        // myHighlight (option)
-        .date {}
       }
 
       // * Bottom Right Part(Buttons)
@@ -143,20 +79,14 @@ height: 107px;
         .summary-bottom__right-btn {
           display: flex;
           align-items: center;
-          &.foryou-btn {}
-
-          &.myHigh-btn {}
         }
-
       }
-
     }
   }
 
   .border-seperator {
     border-bottom: 1px solid #eef1f4;
   }
-
 }
 
 // MY HIGHLIGHT
@@ -164,45 +94,10 @@ height: 107px;
 .contents-highlight-myHi {
   margin-bottom: 16px;
   overflow-x: hidden;
-
-  .my-highlight__container {
-    display: flex;
-    padding-top: 8px;
-
-    &:first-child {
-      padding-top: 0px;
-
-    }
-
-
-    .highlight-border {
-      border-width: 0 0 0 4px;
-      border-style: solid;
-      margin: 2px 0;
-    }
-
-    .hightlight-content {
-      margin: 0 16px;
-      font-size: 14px;
-      width: 100%;
-      font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.43;
-      letter-spacing: normal;
-      color: #555;
-      word-wrap: break-word;
-      background-color: transparent;
-    }
-  }
-
-  .my_highlight-nohightlight {}
 }
 
 // MyHi Tag
 .myHi-summeryitem-main {
-  
   .myHi-hover-check {
     opacity: 0;
     font-size: 19px;
@@ -226,98 +121,8 @@ height: 107px;
       opacity: 1;
     }
   }
-
-
-}
-
-.mytags-container {
-  display: flex;
-
-  .tag-icon {
-    background-image: url(https://getliner.com/src/images/tag-icon.svg);
-    width: 20px;
-    height: 20px;
-    margin: 2px 8px 12px 0;
-    display: inline-block;
-  }
-
-  .mytags-contant {
-    box-sizing: border-box;
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: #f6f8fa;
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 18px;
-    font-size: 12px;
-    letter-spacing: -.3px;
-    color: #787d86;
-    height: 24px;
-    margin: 0 8px 6px 0;
-    padding: 3px 6px;
-    min-width: 48px;
-    text-align: center;
-    position: relative;
-    justify-content: center;
-
-    .mytags-li {
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      font-size: 12px;
-      letter-spacing: -.3px;
-      color: #787d86;
-      overflow: hidden;
-      text-align: center;
-      position: relative;
-    }
-  }
-
-  .editTag {
-    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    font-size: 12px;
-    letter-spacing: -.3;
-    color: #b0b4bd;
-    border-radius: 4px;
-    margin: 0 0 6px;
-    padding: 0 6px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      background-color: #f6f8fa;
-    }
-  }
 }
 
 .myHi-summary-bottom__left {
   display: flex;
-
-  .date {
-    display: flex;
-    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-    color: #777;
-    font-size: 11px;
-    line-height: 1.5;
-    font-weight: 400;
-    align-items: center;
-
-    .vertical-line {
-      border-left: 1px solid #777;
-      height: 10px;
-      margin: 0 6px;
-    }
-  }
 }

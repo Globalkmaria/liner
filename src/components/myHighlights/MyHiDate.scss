@@ -1,0 +1,18 @@
+.date-container{
+
+  .date {
+    display: flex;
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 400;
+    align-items: center;
+    
+    .vertical-line {
+      border-left: 1px solid #777;
+      height: 10px;
+      margin: 0 6px;
+    }
+  }
+}

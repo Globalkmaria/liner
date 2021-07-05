@@ -1,0 +1,31 @@
+.my-highlight__container {
+  display: flex;
+  padding-top: 8px;
+
+  &:first-child {
+    padding-top: 0px;
+
+  }
+
+
+  .highlight-border {
+    border-width: 0 0 0 4px;
+    border-style: solid;
+    margin: 2px 0;
+  }
+
+  .hightlight-content {
+    margin: 0 16px;
+    font-size: 14px;
+    width: 100%;
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #555;
+    word-wrap: break-word;
+    background-color: transparent;
+  }
+}

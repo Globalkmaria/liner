@@ -5,11 +5,12 @@ import ForyouBtn from '../ForyouBtn';
 import './SummeryItem.scss';
 import { BsCheck } from 'react-icons/bs';
 import MyBtn from '../MyBtn';
+import ForyouTags from '../foryou/ForyouTags';
+import MyhiHighlights from '../myHighlights/MyhiHighlights';
+import MyHiDate from '../myHighlights/MyHiDate';
+import LinkComponent from './LinkComponent';
+import MyTags from '../myHighlights/MyTags';
 function SummeryItem({ item, foryou, myHi }) {
-  const highlight_color = {
-    yellow: 'rgb(255, 255, 131)',
-    blue: 'rgb(166, 255, 233)',
-  };
   const {
     title,
     siteTags,
@@ -20,22 +21,13 @@ function SummeryItem({ item, foryou, myHi }) {
     linkImg,
     link,
     date,
+    id,
   } = item;
 
   return (
     <div className="summeryitem-container">
       {/*siteTage - foryou (option) */}
-      {foryou && !!siteTags.length && (
-        <div className="summeryitem-siteTags">
-          <ul>
-            {siteTags.map((sTag, i) => (
-              <li className="siteTag" key={i}>
-                #{sTag}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {foryou && !!siteTags.length && <ForyouTags siteTags={siteTags} />}
       {/* summary Main */}
       <div
         className={`summeryitem-main ${myHi ? 'myHi-summeryitem-main' : ''}`}
@@ -47,10 +39,11 @@ function SummeryItem({ item, foryou, myHi }) {
           </div>
         )}
         <div className="summeryitem-main-contents">
-          {/* title */}
-          <Link to="/">
+          {/* title Link */}
+          <Link to={foryou ? `/home/pages/${id}` : `/myhighlight/${id}`}>
             <h2 className="contents-title">{title}</h2>
           </Link>
+          {/* MainContent */}
           {/*foryou -> description || myhigh -> highlight */}
           <div
             className={`contents-highlight ${
@@ -60,25 +53,7 @@ function SummeryItem({ item, foryou, myHi }) {
             {foryou && liner_highlight && (
               <p>{sliceSentence(liner_highlight, 275)}</p>
             )}
-            {myHi &&
-              my_highlight &&
-              (my_highlight.length ? (
-                my_highlight.map((highlight) => (
-                  <div className="highlight__container my-highlight__container">
-                    <div
-                      className="highlight-border"
-                      style={{
-                        borderColor: `${highlight_color[highlight[0]]}`,
-                      }}
-                    ></div>
-                    <p className="hightlight-content">
-                      {sliceSentence(highlight[1], 240)}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div className="my_highlight-nohightlight"></div>
-              ))}
+            {myHi && <MyhiHighlights my_highlight={my_highlight} />}
           </div>
         </div>
         {/* summary img */}
@@ -90,21 +65,7 @@ function SummeryItem({ item, foryou, myHi }) {
       </div>
       {/* summary bottom */}
       {/* mytags- myHighlights (option) */}
-      {myHi && (
-        <div className="mytags-container">
-          <span className="tag-icon"></span>
-          {myTags.length ? (
-            <ul className="mytags-contant">
-              {myTags.map((mytag) => (
-                <li className="mytags-li">{mytag}</li>
-              ))}
-            </ul>
-          ) : (
-            ''
-          )}
-          <button className="editTag">Edit Tag</button>
-        </div>
-      )}
+      {myHi && <MyTags myTags={myTags} />}
       <div className="summary-bottom">
         <div className="summary-bottom-container">
           <div
@@ -112,26 +73,10 @@ function SummeryItem({ item, foryou, myHi }) {
               myHi ? 'myHi-summary-bottom__left' : ''
             } `}
           >
-            {/* link & date */}
-            <div className="linkline-container">
-              <img
-                src={linkImg}
-                alt="link"
-                className="linkline-containe__img"
-              />
-              <div className="linkline-container__source">
-                <a href={link} className="linkline-container__source__a">
-                  {link}
-                </a>
-              </div>
-            </div>
-            {/* myHighlights (option) */}
-            {myHi && date && (
-              <div className="date">
-                <div className="vertical-line"></div>
-                {date}
-              </div>
-            )}
+            {/* link  */}
+            <LinkComponent linkImg={linkImg} link={link} />
+            {/* myHighlights (option) date */}
+            {myHi && <MyHiDate date={date} />}
           </div>
           {/* summary button */}
           <div className="summary-bottom__right">
