@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ForTitle.scss';
 // eslint-disable-next-line no-unused-vars
 import * as LottiePlayer from '@lottiefiles/lottie-player';
+import { ExtendBtn, CollapseBtn } from '../../components/common/Buttons';
 function ForTitle() {
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
@@ -22,7 +23,6 @@ function ForTitle() {
     setchecked(new_lan_check);
   };
   const onLangDorpToggle = () => {
-    console.log(languageDropToggle);
     setLanguageDropToggle(!languageDropToggle);
   };
   const [infoModal, setInfoModal] = useState(false);
@@ -83,8 +83,8 @@ function ForTitle() {
         >
           <button className="language-btn" onClick={onLangDorpToggle}>
             Languages
-            {languageDropToggle && <div className="expand"></div>}
-            {!languageDropToggle && <div className="collapse"></div>}
+            {languageDropToggle && <ExtendBtn />}
+            {!languageDropToggle && <CollapseBtn />}
           </button>
           {!languageDropToggle && (
             <ul className="language-dropbox">
