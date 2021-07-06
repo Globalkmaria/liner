@@ -61,7 +61,11 @@ margin-bottom: 120px;
     box-sizing: border-box;
     width: 680px;
     border-bottom: 1px solid #eef1f4;
+    .detail-top__title-box{
+      display: flex;
     .detail-top__title {
+      overflow: hidden;
+      text-overflow: ellipsis;
       box-sizing: border-box;
       font-weight: 700;
       font-stretch: normal;
@@ -76,7 +80,7 @@ margin-bottom: 120px;
       cursor: text;
       white-space: pre-line;
     }
-    
+  }
     .detail-top__link-line {
       margin-bottom: 16px;
       display: inline-flex;
@@ -118,7 +122,10 @@ margin-bottom: 120px;
       line-height: normal;
       letter-spacing: -.35px;
       text-align: center;
-      
+    }
+    &:hover{
+      background-color: #f6f8fa;
+      cursor: pointer;
     }
   }
   

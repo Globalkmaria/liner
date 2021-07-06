@@ -7,9 +7,10 @@ import MyhiHighlights from '../myHighlights/MyhiHighlights';
 import MyTags from '../myHighlights/MyTags';
 import LinkComponent from './LinkComponent';
 import './DetailCommon.scss';
-import { GobackBtn } from './Buttons';
+import { EditpenBtn, GobackBtn } from './Buttons';
+import sliceSentence from '../../hook/sliceSentence';
 
-function DetailCommon({ history, item, myHi, foryou, onGoback }) {
+function DetailCommon({ item, myHi, foryou }) {
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
   }, []);
@@ -34,7 +35,10 @@ function DetailCommon({ history, item, myHi, foryou, onGoback }) {
     siteImg,
   } = item;
   return (
-    <div className="detail-common">
+    <div
+      className="detail-common"
+      style={{ marginBottom: `${foryou ? '120px' : '0'}` }}
+    >
       {/* sticky */}
       <section className="detail-common__header">
         <div className="detail-common__header__left">
@@ -66,7 +70,10 @@ function DetailCommon({ history, item, myHi, foryou, onGoback }) {
             <ForyouTags siteTags={siteTags} />
           </div>
         )}
-        <h2 className="detail-top__title">{title}</h2>
+        <div className="detail-top__title-box">
+          <h2 className="detail-top__title">{sliceSentence(title, 60)}</h2>
+          {myHi && <EditpenBtn />}
+        </div>
         {myHi && <MyTags myTags={myTags} />}
         <div className="detail-top__link-line">
           <LinkComponent link={link} linkImg={linkImg} />
@@ -86,9 +93,14 @@ function DetailCommon({ history, item, myHi, foryou, onGoback }) {
           ))}
       </div>
       {/* view original */}
-      <div className="view-original">
-        <button className="view-original-btn">View Original</button>
-      </div>
+      <a
+        href={`http://${link}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="view-original-btn"
+      >
+        <div className="view-original">View Original</div>
+      </a>
       <div className="detail-description-items">
         {moreInfo.map((item) => (
           <div className="detail-description__item">
