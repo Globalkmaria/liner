@@ -6,8 +6,10 @@ function MyTags({ myTags }) {
       <span className="tag-icon"></span>
       {myTags.length ? (
         <ul className="mytags-contant">
-          {myTags.map((mytag) => (
-            <li className="mytags-li">{mytag}</li>
+          {myTags.map((mytag, i) => (
+            <li className="mytags-li" key={i}>
+              {mytag}
+            </li>
           ))}
         </ul>
       ) : (

@@ -10,8 +10,8 @@ function MyhiHighlights({ my_highlight, foryou }) {
   if (!my_highlight.length) return '';
   return (
     <>
-      {my_highlight.map((highlight) => (
-        <div className="my-highlight__container">
+      {my_highlight.map((highlight, i) => (
+        <div className="my-highlight__container" key={i}>
           <div
             className="highlight-border"
             style={{

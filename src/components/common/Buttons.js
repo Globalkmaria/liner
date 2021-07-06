@@ -226,8 +226,8 @@ export function MyExport() {
                 Export your highlights
               </span>
               <div className="myexport-buttons__container">
-                {buttons.map((b) => (
-                  <div className="export-button__container">
+                {buttons.map((b, i) => (
+                  <div className="export-button__container" key={i}>
                     <button className="export-button__btn">
                       <img
                         src={b[1]}
