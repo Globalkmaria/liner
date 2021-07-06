@@ -382,13 +382,16 @@
   .export-btn {
     background-image: url(https://getliner.com/src/images/export-header.svg);
   }
-  .export-modal__container{
+
+  .export-modal__container {
     width: 400px;
     min-height: 179px;
   }
-.myexport-titleline{
-  margin-bottom: 16px;
-}
+
+  .myexport-titleline {
+    margin-bottom: 16px;
+  }
+
   .myexport-modal-subtitle {
     display: flex;
     padding: 0 16px;
@@ -453,4 +456,10 @@
 .my-more-container {
   position: relative;
 
+}
+
+// Go Back
+.goBack-btn {
+  background-image: url(https://getliner.com/src/images/back-header.svg
+);
 }
