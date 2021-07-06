@@ -33,6 +33,7 @@ function ForTitle() {
   const changeNav = () => {
     if (window.scrollY >= 76) {
       setscroll(true);
+      setInfoModal(false);
     } else {
       setscroll(false);
     }

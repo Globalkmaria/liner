@@ -3,11 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { CollapseBtn, ExtendBtn } from '../../components/common/Buttons';
 import './MyTitle.scss';
 function MyTitle() {
+  useEffect(() => {
+    window.addEventListener('scroll', scrollChange);
+  }, []);
+
   const total_pages = 4;
   const total_highlights = 5;
   const [infoModal, setInfoModal] = useState(false);
   const onInfoModalToggle = () => {
     setInfoModal(!infoModal);
+  };
+  const scrollChange = () => {
+    if (window.scrollY >= 20) {
+      setInfoModal(false);
+    }
   };
   // Filter
   const [openFilterModal, setOpenFilterModal] = useState(false);
