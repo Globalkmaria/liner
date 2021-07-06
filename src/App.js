@@ -7,6 +7,7 @@ import MyHighlightPage from './pages/MyHighlightPage';
 import DetailPage from './pages/DetailPage';
 import Morepage from './pages/Morepage';
 import MyHighlightDetailPage from './pages/MyHighlightDetailPage';
+import Relevantpage from './pages/Relevantpage';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route path={['/', '/home']} exact component={HomePage} />
           <Route path="/home/pages/:id" component={DetailPage} />
+          <Route path="/home/relevant/:id" component={Relevantpage} />
           <Route path="/myhighlight" exact component={MyHighlightPage} />
           <Route path="/myhighlight/:id" component={MyHighlightDetailPage} />
           <Route path="/more" component={Morepage} />

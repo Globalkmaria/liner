@@ -2,6 +2,7 @@ import React from 'react';
 import './ForyouTags.scss';
 
 function ForyouTags({ siteTags }) {
+  if (!siteTags.length) return '';
   return (
     <div className="summeryitem-siteTags">
       <ul>
