@@ -1,5 +1,5 @@
 import React from 'react';
-import { MoreBtn, SaveBtn, ShareBtn } from './common/Buttons';
+import { MoreBtn, MoreBtnNoHide, SaveBtn, ShareBtn } from './common/Buttons';
 
 function ForyouBtn({ link }) {
   return (
@@ -10,5 +10,14 @@ function ForyouBtn({ link }) {
     </>
   );
 }
-
 export default ForyouBtn;
+
+export function ForyouBtnDetail({ link }) {
+  return (
+    <>
+      <SaveBtn />
+      <ShareBtn link={link} />
+      <MoreBtnNoHide />
+    </>
+  );
+}

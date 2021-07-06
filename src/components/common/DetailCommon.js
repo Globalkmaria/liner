@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ForyouTags from '../foryou/ForyouTags';
-import ForyouBtn from '../ForyouBtn';
+import { ForyouBtnDetail } from '../ForyouBtn';
 import { MyDetailBtn } from '../MyBtn';
 import MyHiDate from '../myHighlights/MyHiDate';
 import MyhiHighlights from '../myHighlights/MyhiHighlights';
@@ -48,7 +48,9 @@ function DetailCommon({ history, item, myHi, foryou, onGoback }) {
             {title}
           </h3>
         </div>
-        <div className="btnbox">{foryou ? <ForyouBtn /> : <MyDetailBtn />}</div>
+        <div className="btnbox">
+          {foryou ? <ForyouBtnDetail /> : <MyDetailBtn />}
+        </div>
       </section>
       {/* Top */}
       <div className="detail-top__main-img__box">

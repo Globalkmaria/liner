@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Buttons.scss';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 export function BtnWithDropdown({ button_name, button_img, lists }) {
   // list -> [list-name, list-src]
@@ -151,6 +152,21 @@ export function MoreBtn() {
     />
   );
 }
+export function MoreBtnNoHide() {
+  const button_name = 'More';
+  const button_img = '/assests/svg/more-light.svg';
+  const lists = [
+    ['More pages like this', '/assests/svg/like-dropdown.svg'],
+    ['Fewer pages like this', '/assests/svg/dislike-dropdown.svg'],
+  ];
+  return (
+    <BtnWithDropdown
+      button_name={button_name}
+      button_img={button_img}
+      lists={lists}
+    />
+  );
+}
 
 export function ExtendBtn() {
   return <div className="expand"></div>;
@@ -248,4 +264,13 @@ export function MyMore() {
       />
     </div>
   );
+}
+export function GobackBtn() {
+  let history = useHistory();
+
+  function handleClick() {
+    history.goBack();
+  }
+
+  return <button className="goBack-btn btn" onClick={handleClick}></button>;
 }
