@@ -8,7 +8,10 @@ function Header() {
     setInputActive(!inputActive);
   };
   return (
-    <header className="header">
+    <header
+      className="header"
+      style={{ zIndex: `${inputActive ? '20' : '10'}` }}
+    >
       <div className="header-container">
         <a href="/home" className="logo">
           <img src={Logo} alt="Logo" />
