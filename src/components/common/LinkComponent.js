@@ -5,7 +5,12 @@ function LinkComponent({ linkImg, link }) {
     <div className="linkline-container">
       <img src={linkImg} alt="link" className="linkline-containe__img" />
       <div className="linkline-container__source">
-        <a href={link} className="linkline-container__source__a">
+        <a
+          href={`http://${link}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="linkline-container__source__a"
+        >
           {link}
         </a>
       </div>
