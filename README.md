@@ -5,6 +5,15 @@ Project Link: <https://liner-clone-b399a.web.app/>
 
 ## Liner Clone
 
+# 기본적인 구조
+
+  <img src="./src/img/readmeimg1.PNG" width="400">
+  <img src="./src/img/readmeimg2.PNG" width="500">
+  <img src="./src/img/readmeimg3.PNG" width="500">
+  <img src="./src/img/readmeimg4.PNG" width="500">
+  <img src="./src/img/readmeimg5.PNG" width="500">
+  <img src="./src/img/readmeimg6.PNG" width="500">
+
 ## Setup
 
 To run this project, install it locally using npm:

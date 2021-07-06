@@ -21,7 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-src/assets/svg/close-be-comment.svg
 src/reportWebVitals.js
 src/reportWebVitals.js
-src/logo.svg
+src/container/main/ForTitle copy.js
+src/container/main/ForTitle copy.scss
+.gitignore
+src/container/main/MyTitle copy.js
+src/components/common/Buttons copy.scss

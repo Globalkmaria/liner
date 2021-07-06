@@ -142,7 +142,7 @@ function MyTitle() {
         </div>
       </div>
       {/*  sticky */}
-      <div className="my-title-nav">
+      <div className="my-title-nav sticky-zindex">
         {/* TABS */}
         {!searchFocus && (
           <div className="my-nav-tab">
