@@ -10,7 +10,7 @@ import MyhiHighlights from '../myHighlights/MyhiHighlights';
 import MyHiDate from '../myHighlights/MyHiDate';
 import LinkComponent from './LinkComponent';
 import MyTags from '../myHighlights/MyTags';
-function SummeryItem({ item, foryou, myHi }) {
+function SummeryItem({ item, foryou, myHi, morelike }) {
   const {
     title,
     siteTags,
@@ -40,7 +40,15 @@ function SummeryItem({ item, foryou, myHi }) {
         )}
         <div className="summeryitem-main-contents">
           {/* title Link */}
-          <Link to={foryou ? `/home/pages/${id}` : `/myhighlight/${id}`}>
+          <Link
+            to={
+              foryou
+                ? morelike
+                  ? `/home/relevant/${id}`
+                  : `/home/pages/${id}`
+                : `/myhighlight/${id}`
+            }
+          >
             <h2 className="contents-title">{title}</h2>
           </Link>
           {/* MainContent */}
@@ -51,7 +59,7 @@ function SummeryItem({ item, foryou, myHi }) {
             }`}
           >
             {foryou && liner_highlight && (
-              <p>{sliceSentence(liner_highlight, 275)}</p>
+              <p>{sliceSentence(liner_highlight[0][1], 275)}</p>
             )}
             {myHi && <MyhiHighlights my_highlight={my_highlight} />}
           </div>
