@@ -13,7 +13,6 @@ import sliceSentence from '../../hook/sliceSentence';
 function DetailCommon({ item, myHi, foryou }) {
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
-    return window.removeEventListener('scroll', changeNav);
   }, []);
   const [scroll, setscroll] = useState(false);
   const changeNav = () => {

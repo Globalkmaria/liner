@@ -60,12 +60,14 @@ function MyTitle() {
 
   // Search
   const [searchOptionOpen, setSearchOptionOpen] = useState(false);
-  const onSearchOption = () => {
+  const onSearchOption = (e) => {
+    e.stopPropagation();
     setSearchOptionOpen(!searchOptionOpen);
   };
   const [searchFocus, setSearchFocus] = useState(false);
   const onSearchFocus = () => {
     setSearchFocus(true);
+    setSearchOptionOpen(false);
   };
   const onSearchBlur = (e) => {
     e.stopPropagation();
@@ -336,12 +338,12 @@ function MyTitle() {
           )}
           {/* SEARCH */}
           <div className="my-nav-search">
-            <form className="search-content">
+            <div className="search-content">
               {searchFocus && (
                 <div className="search-option">
                   <button
                     className="search-option-btn"
-                    onClick={onSearchOption}
+                    onClick={(e) => onSearchOption(e)}
                   >
                     <span className="search-option-title">Search Option</span>
                     {searchOptionOpen ? <CollapseBtn /> : <ExtendBtn />}
@@ -349,10 +351,7 @@ function MyTitle() {
                   {/* search dropdown */}
                   {searchOptionOpen && (
                     <ul className="modal-container search-dropdown">
-                      <span
-                        className="search-dropdown-title modal-subtitle"
-                        onClick={onSearchOption}
-                      >
+                      <span className="search-dropdown-title modal-subtitle">
                         Search Option
                       </span>
 
@@ -399,7 +398,7 @@ function MyTitle() {
                   )}
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
