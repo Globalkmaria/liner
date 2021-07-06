@@ -64,7 +64,8 @@ $checked-color: #00bdb8;
       position: absolute;
       top: -20px;
       right: 66px;
-      z-index: 50;
+      // z-index: 50;
+      z-index: 3;
 
       .motal-triangle {
         width: 19px;
@@ -213,7 +214,7 @@ $checked-color: #00bdb8;
   justify-content: space-between;
   padding: 0 16px 0 0;
   margin-top: 40px;
-  z-index: 10;
+  z-index: 2;
   // z-index 확인
   color: #52565d;
   background-color: #fff;
