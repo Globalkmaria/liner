@@ -463,3 +463,82 @@
   background-image: url(https://getliner.com/src/images/back-header.svg
 );
 }
+
+// MyDeleteBtn
+.delete-btn {
+  background-image: url(https://getliner.com/src/images/delete-header.svg);
+}
+
+.my-deleteBtn-container {
+  .delete-modal-container {
+    box-sizing: border-box;
+    width: 400px;
+    min-height: 179px;
+
+    .btn-modal-description {
+      margin-top: 24px;
+      box-sizing: border-box;
+      padding: 0 16px;
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.29;
+      letter-spacing: -.35px;
+      color: #787d86;
+    }
+
+    .button-box {
+      box-sizing: border-box;
+      margin-top: 32px;
+
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 4px;
+
+      .delete-box-btn {
+        padding: 8px 12px;
+        margin-bottom: -4px;
+
+        &.cancel {
+          font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+          font-size: 16px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: -.4px;
+          border-radius: 8px;
+          color: #787d86;
+          font-weight: 400;
+
+          &:hover {
+            background-color: #f6f8fa;
+          }
+        }
+
+        &.delete {
+          font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+          font-size: 16px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: -.4px;
+          border-radius: 8px;
+          font-weight: 700;
+          color: #f35750;
+
+          &:hover {
+            background-color: rgba(243, 87, 80, .1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.editpen-btn {
+  margin-left: 2px;
+  background-image: url(https://getliner.com/src/images/edit.svg
+);
+}

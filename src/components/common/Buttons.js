@@ -265,6 +265,39 @@ export function MyMore() {
     </div>
   );
 }
+export function MyDeleteBtn() {
+  const [modal, setModal] = useState(false);
+  const onModal = () => {
+    setModal(!modal);
+  };
+  return (
+    <div className="my-deleteBtn-container">
+      {modal && (
+        <div className="btn-modal__container ">
+          <div className="btn-modal__content delete-modal-container">
+            <div className="btn-modal__titleline">
+              <h3 className="btn-modal__titleline__title">
+                Move 1 page to trash
+              </h3>
+              <button
+                className="btn-modal__titleline__close "
+                onClick={onModal}
+              ></button>
+            </div>
+            <span className="btn-modal-description">
+              You can restore it in the trash
+            </span>
+            <div className="button-box">
+              <button className="cancel delete-box-btn">Cancel</button>
+              <button className="delete delete-box-btn">Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+      <button className="delete-btn btn" onClick={onModal}></button>
+    </div>
+  );
+}
 export function GobackBtn() {
   let history = useHistory();
 
@@ -273,4 +306,7 @@ export function GobackBtn() {
   }
 
   return <button className="goBack-btn btn" onClick={handleClick}></button>;
+}
+export function EditpenBtn() {
+  return <button className="editpen-btn btn"></button>;
 }

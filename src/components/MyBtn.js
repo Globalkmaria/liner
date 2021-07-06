@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyMore, MyExport, MyShare } from './common/Buttons';
+import { MyMore, MyExport, MyShare, MyDeleteBtn } from './common/Buttons';
 
 function MyBtn() {
   return (
@@ -10,5 +10,14 @@ function MyBtn() {
     </>
   );
 }
-
 export default MyBtn;
+
+export function MyDetailBtn() {
+  return (
+    <>
+      <MyShare />
+      <MyExport />
+      <MyDeleteBtn />
+    </>
+  );
+}
