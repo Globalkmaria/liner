@@ -6,7 +6,7 @@ function ForyouBtn({ link }) {
     <>
       <SaveBtn />
       <ShareBtn link={link} />
-      <MoreBtn hide="hide" />
+      <MoreBtn />
     </>
   );
 }

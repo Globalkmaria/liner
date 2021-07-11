@@ -1,12 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ForTitle.scss';
 // eslint-disable-next-line no-unused-vars
 import * as LottiePlayer from '@lottiefiles/lottie-player';
 import { ExtendBtn, CollapseBtn } from '../../components/common/Buttons';
 function ForTitle() {
+  const languageRef = useRef(null);
+  const infoRef = useRef(null);
+  const [languageDropToggle, setLanguageDropToggle] = useState(false);
+  const [scroll, setscroll] = useState(false);
+  const [infoModal, setInfoModal] = useState(false);
+
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
-  }, []);
+    let lanDropdown = languageDropToggle || false;
+    let infomodal = infoModal || false;
+    if (lanDropdown) {
+      document.addEventListener('mousedown', onLangDropClose, false);
+    }
+    if (infomodal) {
+      document.addEventListener('mousedown', onInfoModalClose, false);
+    }
+    return () => {
+      document.removeEventListener('mousedown', onLangDropClose, false);
+      document.removeEventListener('mousedown', onInfoModalClose, false);
+    };
+  }, [languageDropToggle, infoModal]);
   const lang = ['English', '한국어', '简体字', '繁體字', '日本語', 'Others'];
   const [checked, setchecked] = useState([
     true,
@@ -16,20 +34,28 @@ function ForTitle() {
     false,
     false,
   ]);
-  const [languageDropToggle, setLanguageDropToggle] = useState(true);
   const onLanguageCheck = (e) => {
     const id = e.target.id;
     let new_lan_check = checked.map((v, i) => (i === id * 1 ? !v : v));
     setchecked(new_lan_check);
   };
-  const onLangDorpToggle = () => {
+  const onLangDropToggle = () => {
     setLanguageDropToggle(!languageDropToggle);
+    // setLanguageDropToggle(true);
   };
-  const [infoModal, setInfoModal] = useState(false);
-  const onInfoModalToggle = () => {
-    setInfoModal(!infoModal);
+  const onLangDropClose = (e) => {
+    if (!languageRef.current.contains(e.target)) {
+      setLanguageDropToggle(false);
+    }
   };
-  const [scroll, setscroll] = useState(false);
+  const onInfoModalOpen = () => {
+    setInfoModal(true);
+  };
+  const onInfoModalClose = (e) => {
+    if (!infoRef.current.contains(e.target)) {
+      setInfoModal(false);
+    }
+  };
   const changeNav = () => {
     if (window.scrollY >= 76) {
       setscroll(true);
@@ -46,18 +72,15 @@ function ForTitle() {
         <h1 style={scroll ? { fontSize: '16px' } : { color: '32px' }}>
           For You
           {!scroll && (
-            <button className="info-btn" onClick={onInfoModalToggle}></button>
+            <button className="info-btn" onClick={onInfoModalOpen}></button>
           )}
         </h1>
         {/* info modal */}
         {infoModal && (
-          <div className="info-modal-container">
+          <div className="info-modal-container" ref={infoRef}>
             <div className="motal-triangle"></div>
             <div className="motal-inner">
-              <button
-                className="close-btn"
-                onClick={onInfoModalToggle}
-              ></button>
+              <button className="close-btn" onClick={onInfoModalClose}></button>
               <div className="lottie-container">
                 <lottie-player
                   autoplay
@@ -81,13 +104,14 @@ function ForTitle() {
         <div
           className="language-container"
           style={scroll ? { alignItems: 'center' } : { color: 'flex-end' }}
+          ref={languageRef}
         >
-          <button className="language-btn" onClick={onLangDorpToggle}>
+          <button className="language-btn" onClick={onLangDropToggle}>
             Languages
-            {languageDropToggle && <ExtendBtn />}
-            {!languageDropToggle && <CollapseBtn />}
+            {!languageDropToggle && <ExtendBtn />}
+            {languageDropToggle && <CollapseBtn />}
           </button>
-          {!languageDropToggle && (
+          {languageDropToggle && (
             <ul className="language-dropbox">
               <span className="lan-ul">Select for feed</span>
               {lang.map((lan, i) => (

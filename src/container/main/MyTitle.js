@@ -1,34 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CollapseBtn, ExtendBtn } from '../../components/common/Buttons';
 import './MyTitle.scss';
 function MyTitle() {
-  useEffect(() => {
-    window.addEventListener('scroll', scrollChange);
-  }, []);
-
-  const total_pages = 4;
-  const total_highlights = 5;
-  const [infoModal, setInfoModal] = useState(false);
-  const onInfoModalToggle = () => {
-    setInfoModal(!infoModal);
-  };
-  const scrollChange = () => {
-    if (window.scrollY >= 20) {
-      setInfoModal(false);
-    }
-  };
-  // Filter
-  const [openFilterModal, setOpenFilterModal] = useState(false);
-  const onFilterModal = () => {
-    setOpenFilterModal(!openFilterModal);
-  };
-  // Filter Tags
-  const [tagModal, setTagModal] = useState(false);
-  const onTagInput = () => {
-    setTagModal(!tagModal);
-  };
-  // Filter-color
+  const pageType_option = ['Web', 'PDF'];
   const colors = [
     { name: 'Yellow', rgb: '#ffff83', locked: false },
     { name: 'Mint', rgb: '#a6ffe9', locked: false },
@@ -37,34 +12,106 @@ function MyTitle() {
     { name: 'Blue', rgb: '#b8dcff', locked: true },
     { name: 'Pink', rgb: '#ffd0ef', locked: true },
   ];
+  const search_option = ['Title', 'URL', 'Highlight', 'Description', 'Comment'];
+
+  const [infoModal, setInfoModal] = useState(false);
+  const [openFilterModal, setOpenFilterModal] = useState(false);
+  const [tagModal, setTagModal] = useState(false);
+  const [pageType, setPageType] = useState(
+    Array(pageType_option.length).fill(true)
+  );
   const [colorChecked, setcolorChecked] = useState(
     Array(colors.length).fill(false)
   );
+  const [searchOptionOpen, setSearchOptionOpen] = useState(false);
+  const [searchFocus, setSearchFocus] = useState(false);
+  const [searchOption, setSearchOption] = useState(
+    Array(search_option.length).fill(true)
+  );
+  const infoRef = useRef(null);
+  const searchRef = useRef(null);
+  const searchOptionRef = useRef(null);
+  useEffect(() => {
+    window.addEventListener('scroll', scrollChange);
+    let info = infoModal || false;
+    let searchOption = searchOptionOpen || false;
+    let search = searchFocus || false;
+    if (info) {
+      document.addEventListener('mousedown', onInfoModalClose, false);
+    }
+    if (searchOption) {
+      document.addEventListener('mousedown', onSearchOptionClose, false);
+    }
+    if (search) {
+      document.addEventListener('mousedown', onSearchClose, false);
+    }
+    return () => {
+      document.removeEventListener('mousedown', onInfoModalClose, false);
+      document.removeEventListener('mousedown', onSearchOptionClose, false);
+      document.removeEventListener('mousedown', onSearchClose, false);
+    };
+  }, [infoModal, openFilterModal, searchOptionOpen, searchFocus]);
+
+  const total_pages = 4;
+  const total_highlights = 5;
+  const onInfoModalToggle = () => {
+    setInfoModal(!infoModal);
+  };
+  const onInfoModalClose = (e) => {
+    if (!infoRef.current.contains(e.target)) {
+      setInfoModal(false);
+    }
+  };
+
+  const scrollChange = () => {
+    if (window.scrollY >= 20) {
+      setInfoModal(false);
+    }
+  };
+  // Filter
+  const onFilterModal = () => {
+    setOpenFilterModal(!openFilterModal);
+  };
+  const onFilterModalClose = (e) => {
+    if (e.target.className.includes('filter-modal-background')) {
+      setOpenFilterModal(false);
+    }
+  };
+  // Filter Tags
+  const onTagInput = () => {
+    setTagModal(!tagModal);
+  };
+  // Filter-color
+
   const onColorChecked = (e) => {
-    const id = e.target.id;
+    const id = e.target.id || e.target.parentNode.id;
+    const disabled_colors = [2, 3, 4, 5];
+    if (!id) return;
+    if (disabled_colors.includes(id * 1)) return;
     const new_colorChecked = colorChecked.map((v, i) =>
       i === id * 1 ? !v : v
     );
     setcolorChecked(new_colorChecked);
   };
   // Fileter-page_type
-  const pageType_option = ['Web', 'PDF'];
-  const [pageType, setPageType] = useState(
-    Array(pageType_option.length).fill(true)
-  );
+
   const onPageTypeCheck = (e) => {
-    const id = e.target.id;
+    const id = e.target.id || e.target.parentNode.parentNode.id;
+    if (!id) return;
     const new_pageType = pageType.map((v, i) => (i === id * 1 ? !v : v));
     setPageType(new_pageType);
   };
 
   // Search
-  const [searchOptionOpen, setSearchOptionOpen] = useState(false);
   const onSearchOption = (e) => {
     e.stopPropagation();
     setSearchOptionOpen(!searchOptionOpen);
   };
-  const [searchFocus, setSearchFocus] = useState(false);
+  const onSearchOptionClose = (e) => {
+    if (!searchOptionRef.current.contains(e.target)) {
+      setSearchOptionOpen(false);
+    }
+  };
   const onSearchFocus = () => {
     setSearchFocus(true);
     setSearchOptionOpen(false);
@@ -73,10 +120,12 @@ function MyTitle() {
     e.stopPropagation();
     setSearchFocus(false);
   };
-  const search_option = ['Title', 'URL', 'Highlight', 'Description', 'Comment'];
-  const [searchOption, setSearchOption] = useState(
-    Array(search_option.length).fill(true)
-  );
+  const onSearchClose = (e) => {
+    if (!searchRef.current.contains(e.target)) {
+      setSearchFocus(false);
+    }
+  };
+
   const onSearchOptionCheck = (e) => {
     const id = e.target.id;
     let new_search_option = searchOption.map((v, i) => (i === id * 1 ? !v : v));
@@ -93,7 +142,7 @@ function MyTitle() {
           <button className="info-btn" onClick={onInfoModalToggle}></button>
           {/* info modal lottie */}
           {infoModal && (
-            <div className="info-modal-container">
+            <div className="info-modal-container" ref={infoRef}>
               <div className="motal-triangle"></div>
               <div className="motal-inner">
                 <button
@@ -167,7 +216,10 @@ function MyTitle() {
               ></button>
               {/* modal */}
               {openFilterModal && (
-                <div className="filter-modal-background modal">
+                <div
+                  className="filter-modal-background modal"
+                  onClick={(e) => onFilterModalClose(e)}
+                >
                   <div className="filter-modal-container modal-container">
                     <h2 className="modal-title">
                       Filter
@@ -338,9 +390,9 @@ function MyTitle() {
           )}
           {/* SEARCH */}
           <div className="my-nav-search">
-            <div className="search-content">
+            <div className="search-content" ref={searchRef}>
               {searchFocus && (
-                <div className="search-option">
+                <div className="search-option" ref={searchOptionRef}>
                   <button
                     className="search-option-btn"
                     onClick={(e) => onSearchOption(e)}
@@ -402,7 +454,10 @@ function MyTitle() {
           </div>
         </div>
       </div>
-      <span className="search-description">
+      <span
+        className="search-description"
+        style={{ opacity: `${searchFocus ? '1' : '0'}` }}
+      >
         Search results from my highlights
       </span>
     </>

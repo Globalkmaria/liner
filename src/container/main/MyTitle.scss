@@ -64,8 +64,8 @@ $checked-color: #00bdb8;
       position: absolute;
       top: -20px;
       right: 66px;
-      // z-index: 50;
-      z-index: 3;
+      z-index: 50;
+      // z-index: 3;
 
       .motal-triangle {
         width: 19px;
@@ -83,6 +83,7 @@ $checked-color: #00bdb8;
     }
 
     .motal-inner {
+      z-index: 1;
       width: 320px;
       height: 280px;
       box-shadow: 0 8px 20px 0 rgba(39, 43, 49, 0.2);
@@ -214,7 +215,7 @@ $checked-color: #00bdb8;
   justify-content: space-between;
   padding: 0 16px 0 0;
   margin-top: 40px;
-  z-index: 2;
+  z-index: 11;
   // z-index 확인
   color: #52565d;
   background-color: #fff;
@@ -769,6 +770,14 @@ $checked-color: #00bdb8;
   letter-spacing: -0.3px;
 }
 
-.sticky-zindex{
-  z-index: 2;
+// .sticky-zindex{
+//   z-index: 2;
+// }
+.window-container{
+  position: fixed;
+top: 0;
+left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
 }

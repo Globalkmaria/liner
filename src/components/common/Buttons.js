@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Buttons.scss';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -6,11 +6,24 @@ import { useHistory } from 'react-router-dom';
 export function BtnWithDropdown({ button_name, button_img, lists }) {
   // list -> [list-name, list-src]
   const [openModal, setOpenModal] = useState(false);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    let open = openModal || false;
+    if (open) {
+      document.addEventListener('mousedown', onCloseModal, false);
+    }
+    return () => {
+      document.removeEventListener('mousedown', onCloseModal, false);
+    };
+  }, [openModal]);
   const onOpenModal = () => {
     setOpenModal(!openModal);
   };
+  const onCloseModal = (e) => {
+    if (!containerRef.current.contains(e.target)) setOpenModal(false);
+  };
   return (
-    <div className="btn-with-dropdown__container">
+    <div className="btn-with-dropdown__container" ref={containerRef}>
       <div
         id="name-hover"
         className="btn-hover-name__container dropdown-hover-name"
@@ -22,8 +35,8 @@ export function BtnWithDropdown({ button_name, button_img, lists }) {
       </button>
       {openModal && (
         <ul className="btn-dropdown__container">
-          {lists.map((list) => (
-            <li className="btn-dropdown__li">
+          {lists.map((list, i) => (
+            <li className="btn-dropdown__li" key={i}>
               <span className="btn-dropdown__li__icon">
                 <img src={list[1]} alt={list[0]} />
               </span>
@@ -82,11 +95,18 @@ export function ShareBtn({ link }) {
       setCopied(false);
     }, 1000);
   };
+  const onClickOutsideContainer = (e) => {
+    if (e.target !== e.currentTarget) return;
+    setShare(false);
+  };
   return (
     <>
       <div className="share-container">
         {share && (
-          <div className="btn-modal__container share-modal-container ">
+          <div
+            className="btn-modal__container share-modal-container "
+            onClick={(e) => onClickOutsideContainer(e)}
+          >
             <div className="btn-modal__content">
               <div className="btn-modal__titleline">
                 <h3 className="btn-modal__titleline__title">
@@ -98,9 +118,9 @@ export function ShareBtn({ link }) {
                 ></button>
               </div>
               <div className="sns-container">
-                {sns.map((s) => (
+                {sns.map((s, i) => (
                   // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                  <a className="sns-button" href="#">
+                  <a className="sns-button" href="#" key={i}>
                     <img src={s.img} alt={s.name} />
                     <p>{s.name}</p>
                   </a>
@@ -208,12 +228,22 @@ export function MyExport() {
     ['Everote', 'https://getliner.com/src/images/evernote.svg'],
     ['Text', 'https://getliner.com/src/images/text.svg'],
   ];
+  const onClickOutsideContainer = (e) => {
+    if (e.target !== e.currentTarget) return;
+    setMore(false);
+  };
   return (
     <>
       <div className="export-container">
+        <div className="btn-hover-name__container dropdown-hover-name">
+          <span className="btn-hover-name__name">Export</span>
+        </div>
         <button className="export-btn btn" onClick={onMore}></button>
         {more && (
-          <div className="btn-modal__container">
+          <div
+            className="btn-modal__container"
+            onClick={(e) => onClickOutsideContainer(e)}
+          >
             <div className="btn-modal__content export-modal__container">
               <div className="btn-modal__titleline myexport-titleline">
                 <span className="btn-modal__titleline__title">Export</span>
@@ -270,8 +300,15 @@ export function MyDeleteBtn() {
   const onModal = () => {
     setModal(!modal);
   };
+  const onClickOutsideContainer = (e) => {
+    if (e.target !== e.currentTarget) return;
+    setModal(false);
+  };
   return (
-    <div className="my-deleteBtn-container">
+    <div
+      className="my-deleteBtn-container"
+      onClick={(e) => onClickOutsideContainer(e)}
+    >
       {modal && (
         <div className="btn-modal__container ">
           <div className="btn-modal__content delete-modal-container">
