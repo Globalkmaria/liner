@@ -297,7 +297,7 @@ export function MyMore() {
 }
 export function MyDeleteBtn() {
   const [modal, setModal] = useState(false);
-  const onModal = () => {
+  const onModalToggle = () => {
     setModal(!modal);
   };
   const onClickOutsideContainer = (e) => {
@@ -305,12 +305,12 @@ export function MyDeleteBtn() {
     setModal(false);
   };
   return (
-    <div
-      className="my-deleteBtn-container"
-      onClick={(e) => onClickOutsideContainer(e)}
-    >
+    <div className="my-deleteBtn-container">
       {modal && (
-        <div className="btn-modal__container ">
+        <div
+          className="btn-modal__container "
+          onClick={(e) => onClickOutsideContainer(e)}
+        >
           <div className="btn-modal__content delete-modal-container">
             <div className="btn-modal__titleline">
               <h3 className="btn-modal__titleline__title">
@@ -318,20 +318,22 @@ export function MyDeleteBtn() {
               </h3>
               <button
                 className="btn-modal__titleline__close "
-                onClick={onModal}
+                onClick={onModalToggle}
               ></button>
             </div>
             <span className="btn-modal-description">
               You can restore it in the trash
             </span>
             <div className="button-box">
-              <button className="cancel delete-box-btn">Cancel</button>
+              <button className="cancel delete-box-btn" onClick={onModalToggle}>
+                Cancel
+              </button>
               <button className="delete delete-box-btn">Delete</button>
             </div>
           </div>
         </div>
       )}
-      <button className="delete-btn btn" onClick={onModal}></button>
+      <button className="delete-btn btn" onClick={onModalToggle}></button>
     </div>
   );
 }
