@@ -1,16 +1,16 @@
 import React from 'react';
 import sliceSentence from '../../hook/sliceSentence';
-import './MyhiHighlights.scss';
+import './Highlights.scss';
 
-function MyhiHighlights({ my_highlight, foryou }) {
+function Highlights({ highlights, foryou }) {
   const highlight_color = {
     yellow: 'rgb(255, 255, 131)',
     blue: 'rgb(166, 255, 233)',
   };
-  if (!my_highlight.length) return '';
+  if (!highlights.length) return '';
   return (
     <>
-      {my_highlight.map((highlight, i) => (
+      {highlights.map((highlight, i) => (
         <div className="my-highlight__container" key={i}>
           <div
             className="highlight-border"
@@ -30,4 +30,4 @@ function MyhiHighlights({ my_highlight, foryou }) {
   );
 }
 
-export default MyhiHighlights;
+export default Highlights;

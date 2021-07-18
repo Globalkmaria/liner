@@ -51,7 +51,7 @@ export const detail_data = [
         'Description',
         'Update: Google Docs now has a built-in outliner. When you open it from Tools > Document Outline View > Show document outline, it will pick up any heading ...',
       ],
-      ['Authors', 'http://facebook.com/ladywriters'],
+      ['Authors', 'Lydia Belanger'],
     ],
     liner_highlight: [
       [
@@ -246,7 +246,7 @@ export const myHightlight = [
   {
     id: 2,
     title: 'Writing Apps for Bloggers',
-    siteImg: '',
+    siteImg: '/assests/images/com1.jpg',
     myTags: ['product'],
     my_highlight: [
       ['yellow', 'Although you can write your articles in Microsoft Word'],
@@ -259,7 +259,7 @@ export const myHightlight = [
         'Description',
         'Update: Google Docs now has a built-in outliner. When you open it from Tools > Document Outline View > Show document outline, it will pick up any heading ...',
       ],
-      ['Authors', 'http://facebook.com/ladywriters'],
+      ['Authors', 'Maria Sender'],
     ],
   },
   {

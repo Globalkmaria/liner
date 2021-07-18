@@ -105,26 +105,28 @@ function ForTitle() {
         )}
         {/* language */}
         <div
-          className="language-container"
+          className="languages"
           style={scroll ? { alignItems: 'center' } : { color: 'flex-end' }}
           ref={languageRef}
         >
-          <button className="language-btn" onClick={onLangDropToggle}>
+          <button className="languages__btn" onClick={onLangDropToggle}>
             Languages
             {!languageDropToggle && <ExtendBtn />}
             {languageDropToggle && <CollapseBtn />}
           </button>
           {languageDropToggle && (
-            <ul className="language-dropbox">
-              <span className="lan-ul">Select for feed</span>
+            <ul className="languages__dropbox">
+              <span className="languages-list">Select for feed</span>
               {lang.map((lan, i) => (
                 <li
-                  className="lang-li"
+                  className="language-item"
                   key={i}
                   id={i}
                   onClick={(e) => onLanguageCheck(e)}
                 >
-                  <span className={`${checked[i] && 'lan-span-check'}`}>
+                  <span
+                    className={`${checked[i] ? 'language-item--checked' : ''}`}
+                  >
                     {lan}
                   </span>
                   {checked[i] && <div className="check"></div>}

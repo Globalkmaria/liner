@@ -1,4 +1,4 @@
-.summeryitem-container {
+.summeryitem {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   padding: 24px 16px 0;
@@ -6,14 +6,14 @@
   position: relative;
 
   // * Main Part
-  .summeryitem-main {
+  &__main {
     display: flex;
     justify-content: space-between;
     padding-bottom: 16px;
     overflow-x: hidden;
 
-    .summeryitem-main-contents {
-      .contents-title {
+    .summeryitem-content {
+      &__title {
         font-size: 20px;
         font-weight: 700;
         line-height: 1.33;
@@ -21,7 +21,7 @@
         margin: 0 0 8px;
       }
 
-      .contents-highlight {
+      &__highlight {
         font-size: 14px;
         // display: box;
         overflow: hidden;
@@ -33,28 +33,37 @@
         color: #555;
         word-wrap: break-word;
 
-        &.contents-highlight-foryou {
+        &--foryou {
           margin-top: 16px;
         }
+  
+        &--myHi {
+          margin-bottom: 16px;
+          overflow-x: hidden;
+        }
       }
+
     }
 
-    .summeryitem-main-imgContainer {
-      height: 107px;
-      .main-imgContainer-img {
-        flex-shrink: 0;
-        width: 96px;
-        height: 96px;
-        border-radius: 4px;
-        margin-left: 24px;
-        object-fit: cover;
-        // flex-shrink: 0;
-      }
-    }
   }
 
-  // * Bottom Part
-  .summary-bottom {
+  // summeritem Img
+  &__img-box {
+    height: 107px;
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    border-radius: 4px;
+    margin-left: 24px;
+    object-fit: cover;
+    // flex-shrink: 0;
+  }
+
+  // * Footer Part
+  .summeryitem__footer {
     height: 48px;
     box-sizing: border-box;
     display: flex;
@@ -62,26 +71,30 @@
     width: 680px;
     padding-bottom: 16px;
 
-    .summary-bottom-container {
-      width: 100%;
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      justify-content: space-between;
+  }
+  .summaryitem__footer-container{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
 
-      // * Bottom Left Part
-      .summary-bottom__left {
+  }
 
-      }
 
-      // * Bottom Right Part(Buttons)
-      .summary-bottom__right {
-        .summary-bottom__right-btn {
-          display: flex;
-          align-items: center;
-        }
-      }
-    }
+  // * Bottom linkbox
+  .summaryitem__linkbox {
+    display: flex;
+  }
+
+  // * Bottom Right Part(Buttons)
+  .summaryitem__btn-box {
+    display: flex;
+  }
+
+  .summaryitem__btn {
+    display: flex;
+    align-items: center;
   }
 
   .border-seperator {
@@ -91,14 +104,11 @@
 
 // MY HIGHLIGHT
 // Summary main
-.contents-highlight-myHi {
-  margin-bottom: 16px;
-  overflow-x: hidden;
-}
 
-// MyHi Tag
-.myHi-summeryitem-main {
-  .myHi-hover-check {
+
+// MyHi check
+.summeryitem__main--myhi {
+  .hover-check--myhi {
     opacity: 0;
     font-size: 19px;
     color: #fff;
@@ -117,12 +127,9 @@
   }
 
   &:hover {
-    .myHi-hover-check {
+    .hover-check--myhi {
       opacity: 1;
     }
   }
 }
 
-.myHi-summary-bottom__left {
-  display: flex;
-}

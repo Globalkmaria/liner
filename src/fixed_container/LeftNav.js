@@ -14,7 +14,7 @@ function LeftNav() {
   let menuArray = findmenu(path);
 
   return (
-    <div className="leftNave">
+    <nav className="leftNave">
       <a
         href="/home"
         id="0"
@@ -36,7 +36,7 @@ function LeftNav() {
       >
         More
       </a>
-    </div>
+    </nav>
   );
 }
 

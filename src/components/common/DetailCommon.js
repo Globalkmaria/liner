@@ -3,12 +3,12 @@ import ForyouTags from '../foryou/ForyouTags';
 import { ForyouBtnDetail } from '../ForyouBtn';
 import { MyDetailBtn } from '../MyBtn';
 import MyHiDate from '../myHighlights/MyHiDate';
-import MyhiHighlights from '../myHighlights/MyhiHighlights';
 import MyTags from '../myHighlights/MyTags';
 import LinkComponent from './LinkComponent';
 import './DetailCommon.scss';
 import { EditpenBtn, GobackBtn } from './Buttons';
 import sliceSentence from '../../hook/sliceSentence';
+import Highlights from './Highlights';
 
 function DetailCommon({ item, myHi, foryou }) {
   useEffect(() => {
@@ -34,16 +34,17 @@ function DetailCommon({ item, myHi, foryou }) {
     moreInfo,
     siteImg,
   } = item;
+  console.log(moreInfo);
   return (
     <>
       {/* sticky */}
-      <section className="detail-common__header">
-        <div className="detail-common__header__left">
+      <div className="detail-header">
+        <div className="detail-header__left">
           <div className="back-btn">
             <GobackBtn />
           </div>
           <h3
-            className="detail-title"
+            className="detail-header__title"
             style={{ opacity: `${scroll ? '1' : '0'}` }}
           >
             {title}
@@ -52,45 +53,39 @@ function DetailCommon({ item, myHi, foryou }) {
         <div className="btnbox">
           {foryou ? <ForyouBtnDetail /> : <MyDetailBtn />}
         </div>
-      </section>
+      </div>
       <div
-        className="detail-common"
+        className="detail-main"
         style={{ marginBottom: `${foryou ? '120px' : '0'}` }}
       >
         {/* Top */}
-        <div className="detail-top__main-img__box">
-          <img
-            className="detail-top__main-img__box__img"
-            src={siteImg}
-            alt="site img"
-          />
+        <div className="detail-main__img-box">
+          <img className="detail-main__img" src={siteImg} alt="site img" />
         </div>
-        <div className="detail-top-container">
+        <div className="detail-info">
           {foryou && (
-            <div className="detail-for-tagcontainer">
+            <div className="detail-info__tags">
               <ForyouTags siteTags={siteTags} />
             </div>
           )}
-          <div className="detail-top__title-box">
-            <h2 className="detail-top__title">{sliceSentence(title, 60)}</h2>
+          <div className="detail-info__title-box">
+            <h2 className="detail-info__title">{sliceSentence(title, 60)}</h2>
             {myHi && <EditpenBtn />}
           </div>
           {myHi && <MyTags myTags={myTags} />}
-          <div className="detail-top__link-line">
+          <div className="detail-info__link-box">
             <LinkComponent link={link} linkImg={linkImg} />
             {myHi && <MyHiDate date={date} />}
           </div>
         </div>
-        {/* Content */}
-        <div className="detail-content-container">
-          {foryou && <MyhiHighlights my_highlight={liner_highlight} foryou />}
+        {/* highlights */}
+        <div className="detail-highlights">
+          {foryou && <Highlights highlights={liner_highlight} foryou />}
           {myHi &&
             (my_highlight.length ? (
-              <MyhiHighlights
-                my_highlight={myHi ? my_highlight : liner_highlight}
-              />
+              <Highlights highlights={myHi ? my_highlight : liner_highlight} />
             ) : (
-              <div className="no-highlights">No Highlights</div>
+              <div className="highlights--no-highlights">No Highlights</div>
             ))}
         </div>
         {/* view original */}
@@ -98,15 +93,15 @@ function DetailCommon({ item, myHi, foryou }) {
           href={`http://${link}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="view-original-btn"
+          className="view-original"
         >
-          <div className="view-original">View Original</div>
+          <div className="view-original__title">View Original</div>
         </a>
-        <div className="detail-description-items">
+        <div className="detail-description">
           {moreInfo.map((item) => (
             <div className="detail-description__item">
-              <div className="description-content__title">{item[0]}</div>
-              <p className="description-content__content">{item[1]}</p>
+              <div className="detail-description__title">{item[0]}</div>
+              <p className="detail-description__content">{item[1]}</p>
             </div>
           ))}
         </div>

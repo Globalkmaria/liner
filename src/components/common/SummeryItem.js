@@ -6,10 +6,10 @@ import './SummeryItem.scss';
 import { BsCheck } from 'react-icons/bs';
 import MyBtn from '../MyBtn';
 import ForyouTags from '../foryou/ForyouTags';
-import MyhiHighlights from '../myHighlights/MyhiHighlights';
 import MyHiDate from '../myHighlights/MyHiDate';
 import LinkComponent from './LinkComponent';
 import MyTags from '../myHighlights/MyTags';
+import Highlights from './Highlights';
 function SummeryItem({ item, foryou, myHi, morelike }) {
   const {
     title,
@@ -23,22 +23,21 @@ function SummeryItem({ item, foryou, myHi, morelike }) {
     date,
     id,
   } = item;
-
   return (
-    <div className="summeryitem-container">
+    <div className="summeryitem">
       {/*siteTage - foryou (option) */}
       {foryou && !!siteTags.length && <ForyouTags siteTags={siteTags} />}
       {/* summary Main */}
       <div
-        className={`summeryitem-main ${myHi ? 'myHi-summeryitem-main' : ''}`}
+        className={`summeryitem__main ${myHi ? 'summeryitem__main--myhi' : ''}`}
       >
         {/* myHi hover check */}
         {myHi && (
-          <div className="myHi-hover-check">
+          <div className="hover-check--myhi">
             <BsCheck />
           </div>
         )}
-        <div className="summeryitem-main-contents">
+        <div className="summeryitem-content">
           {/* title Link */}
           <Link
             to={
@@ -49,36 +48,38 @@ function SummeryItem({ item, foryou, myHi, morelike }) {
                 : `/myhighlight/${id}`
             }
           >
-            <h2 className="contents-title">{title}</h2>
+            <h2 className="summeryitem-content__title">{title}</h2>
           </Link>
           {/* MainContent */}
           {/*foryou -> description || myhigh -> highlight */}
           <div
-            className={`contents-highlight ${
-              foryou ? 'contents-highlight-foryou' : 'contents-highlight-myHi'
+            className={`summeryitem-content__highlight ${
+              foryou
+                ? 'summeryitem-content__highlight--foryou'
+                : 'summeryitem-content__highlight--myHi'
             }`}
           >
             {foryou && liner_highlight && (
               <p>{sliceSentence(liner_highlight[0][1], 275)}</p>
             )}
-            {myHi && <MyhiHighlights my_highlight={my_highlight} />}
+            {myHi && <Highlights highlights={my_highlight} />}
           </div>
         </div>
         {/* summary img */}
         {siteImg && (
-          <div className="summeryitem-main-imgContainer">
-            <img className="main-imgContainer-img" src={siteImg} alt="site" />
+          <div className="summeryitem__img-box">
+            <img className="summeryitem__img" src={siteImg} alt="site" />
           </div>
         )}
       </div>
       {/* summary bottom */}
       {/* mytags- myHighlights (option) */}
       {myHi && <MyTags myTags={myTags} />}
-      <div className="summary-bottom">
-        <div className="summary-bottom-container">
+      <div className="summeryitem__footer">
+        <div className="summaryitem__footer-container">
           <div
-            className={`summary-bottom__left ${
-              myHi ? 'myHi-summary-bottom__left' : ''
+            className={`summaryitem__linkbox ${
+              myHi ? 'summaryitem__linkbox-myhi' : ''
             } `}
           >
             {/* link  */}
@@ -87,14 +88,14 @@ function SummeryItem({ item, foryou, myHi, morelike }) {
             {myHi && <MyHiDate date={date} />}
           </div>
           {/* summary button */}
-          <div className="summary-bottom__right">
+          <div className="summaryitem__btn-box">
             {foryou && (
-              <div className="foryou-btn summary-bottom__right-btn">
+              <div className="summaryitem__btn--foryou summaryitem__btn">
                 <ForyouBtn link={link} />
               </div>
             )}
             {myHi && (
-              <div className="myHigh-btn summary-bottom__right-btn">
+              <div className="summaryitem__btn--myHigh summaryitem__btn">
                 <MyBtn />
               </div>
             )}
