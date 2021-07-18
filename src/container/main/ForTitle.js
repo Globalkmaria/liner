@@ -52,6 +52,9 @@ function ForTitle() {
     setInfoModal(true);
   };
   const onInfoModalClose = (e) => {
+    if (e.target === e.currentTarget) {
+      setInfoModal(false);
+    }
     if (!infoRef.current.contains(e.target)) {
       setInfoModal(false);
     }
@@ -77,7 +80,7 @@ function ForTitle() {
         </h1>
         {/* info modal */}
         {infoModal && (
-          <div className="info-modal-container" ref={infoRef}>
+          <div className="info-modal" ref={infoRef}>
             <div className="motal-triangle"></div>
             <div className="motal-inner">
               <button className="close-btn" onClick={onInfoModalClose}></button>
@@ -90,7 +93,7 @@ function ForTitle() {
                   style={{ width: '320px' }}
                 ></lottie-player>
               </div>
-              <div className="motal-inner-description">
+              <div className="motal-description">
                 <h4>For You</h4>
                 <p>
                   We recommend you pages you'll love and need. The more you
