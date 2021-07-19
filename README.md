@@ -5,6 +5,11 @@ Project Link: <https://liner-clone-b399a.web.app/>
 
 # Liner Clone
 
+## Technologies
+
+- REACT
+- SASS(SCSS)
+
 ## 기본적인 구조
 
 - 고정된 Header, Left Nav 는 먼저 따로 고정했습니다.
