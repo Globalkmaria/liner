@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Header from './fixed_container/Header';
 import LeftNav from './fixed_container/LeftNav';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

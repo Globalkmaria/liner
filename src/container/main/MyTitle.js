@@ -69,11 +69,11 @@ function MyTitle() {
     }
   };
   // Filter
-  const onFilterModal = () => {
+  const onFilterModal = (e) => {
     setOpenFilterModal(!openFilterModal);
   };
   const onFilterModalClose = (e) => {
-    if (e.target.className.includes('filter-modal-background')) {
+    if (e.target.className.includes('filter-background')) {
       setOpenFilterModal(false);
     }
   };
@@ -136,15 +136,15 @@ function MyTitle() {
       <div className="my-title">
         {/* <div className="for-title-main"> */}
         {/* title */}
-        <div className="my-title-titleline">
+        <div className="my-title__header">
           <h1>My Highlights</h1>
           {/* my-highlight info */}
           <button className="info-btn" onClick={onInfoModalToggle}></button>
           {/* info modal lottie */}
           {infoModal && (
-            <div className="info-modal-container" ref={infoRef}>
-              <div className="motal-triangle"></div>
-              <div className="motal-inner">
+            <div className="info-modal" ref={infoRef}>
+              <div className="info-modal__motal-triangle"></div>
+              <div className="info-modal__motal-inner">
                 <button
                   className="close-btn"
                   onClick={onInfoModalToggle}
@@ -158,7 +158,7 @@ function MyTitle() {
                     style={{ width: '320px' }}
                   ></lottie-player>
                 </div>
-                <div className="motal-inner-description">
+                <div className="info-modal__description">
                   <h4>My Highlights</h4>
                   <p>
                     All your work, including highlights and comments will be
@@ -168,8 +168,8 @@ function MyTitle() {
               </div>
             </div>
           )}
-          <button className="my-title-pdf">
-            <div className="pdf-button">
+          <button className="my-title__pdf">
+            <div className="pdf">
               <img
                 className="plus-img"
                 src="https://getliner.com/src/images/add-highlights.svg"
@@ -180,36 +180,32 @@ function MyTitle() {
           </button>
         </div>
         {/* my highlights summery */}
-        <div className="my-title-summary">
-          <span className="my-title-summary-pages summary-content">
-            {total_pages} Pages
-          </span>
+        <div className="my-title__summary">
+          <span className="summary-text">{total_pages} Pages</span>
           <div className="middle-dot"></div>
-          <span className="my-title-summary-highlights summary-content">
-            {total_highlights} Highlights
-          </span>
+          <span className="summary-text">{total_highlights} Highlights</span>
         </div>
       </div>
       {/*  sticky */}
-      <div className="my-title-nav sticky-zindex">
+      <div className="my-title__nav">
         {/* TABS */}
         {!searchFocus && (
-          <div className="my-nav-tab">
-            <a href="#" className="tab-item tab-highlights">
+          <div className="my-title__nav-tab">
+            <a href="#" className="tab-item tab-item--active">
               Highlights
             </a>
-            <a href="#" className="tab-item tab-tags">
+            <a href="#" className="tab-item">
               Tags
             </a>
           </div>
         )}
         <div
-          className="my-nav-right"
+          className="my-title__btn-box"
           style={!searchFocus ? { width: '284px' } : { width: '100%' }}
         >
           {/* FILTER */}
           {!searchFocus && (
-            <div className="my-nav-filter">
+            <div className="filter">
               <button
                 className="filter-btn btn icon-hover"
                 onClick={onFilterModal}
@@ -217,11 +213,11 @@ function MyTitle() {
               {/* modal */}
               {openFilterModal && (
                 <div
-                  className="filter-modal-background modal"
+                  className="filter-modal modal filter-background"
                   onClick={(e) => onFilterModalClose(e)}
                 >
-                  <div className="filter-modal-container modal-container">
-                    <h2 className="modal-title">
+                  <div className="filter-modal__container modal-container">
+                    <h2 className="filter-modal__title modal-title">
                       Filter
                       <button
                         className="close-btn icon-hover"
@@ -231,20 +227,20 @@ function MyTitle() {
 
                     <div className="modal-items">
                       {/* Tags */}
-                      <div className="modal-item">
-                        <h3 className="item-title">Tags</h3>
-                        <div className="item-content tag-content">
-                          <div className="tag-input-container">
+                      <div className="tags modal-item">
+                        <h3 className="modal-item__title">Tags</h3>
+                        <div className="tags__container">
+                          <div className="tags__inner">
                             <img
                               src="https://getliner.com/src/images/tag-small.svg"
                               alt="tag icon"
-                              className="tag-icon"
+                              className="tags__icon"
                             />
-                            <div className="selected-tags">
+                            <div className="tags__input-container">
                               {/* selected tags */}
                               <input
                                 type="text"
-                                className="tag-input"
+                                className="tags__input"
                                 placeholder="Search tags"
                                 onBlur={onTagInput}
                                 onFocus={onTagInput}
@@ -252,7 +248,7 @@ function MyTitle() {
                             </div>
                           </div>
                           {tagModal && (
-                            <div className="tag-dropdown modal-container">
+                            <div className="tags__dropdown modal__container">
                               <span>No Tags</span>
                             </div>
                           )}
@@ -260,8 +256,8 @@ function MyTitle() {
                       </div>
                       <div className="modal-item colors">
                         {/* Color Filter */}
-                        <h3 className="item-title">Color Filter</h3>
-                        <ul className="item-content">
+                        <h3 className="modal-item__title">Color Filter</h3>
+                        <ul className="colors-list">
                           {colors.map((color, i) => (
                             <li
                               className={`color ${
@@ -270,7 +266,7 @@ function MyTitle() {
                               key={i}
                             >
                               <div
-                                className="about-color"
+                                className="color__content"
                                 id={i}
                                 onClick={(e) => onColorChecked(e)}
                               >
@@ -303,32 +299,34 @@ function MyTitle() {
                           ))}
                         </ul>
                       </div>
-                      <div className="modal-item">
+                      <div className="modal-item pageType">
                         {/* Page type */}
-                        <h3 className="item-title ">Page type</h3>
-                        <ul className="item-content pageType-content">
+                        <h3 className="modal-item__title">Page type</h3>
+                        <ul className="pageType-list">
                           <li
-                            className="pageType-option-container"
+                            className="pageType-option"
                             id="0"
                             onClick={(e) => onPageTypeCheck(e)}
                           >
-                            <span className="option-header">
+                            <span className="pageType-option__header">
                               {pageType[0] ? (
                                 <img
                                   src="https://getliner.com/src/images/web-filter-selected.svg"
                                   alt="web checked icon"
-                                  className="option-header-icon"
+                                  className="pageType-option__icon"
                                 />
                               ) : (
                                 <img
                                   src="https://getliner.com/src/images/web-filter.svg"
                                   alt="web"
-                                  className="option-header-icon"
+                                  className="pageType-option__icon"
                                 />
                               )}
                               <span
-                                className={`type-name ${
-                                  pageType[0] ? 'type-name--checked' : ''
+                                className={`pageType-option__title ${
+                                  pageType[0]
+                                    ? 'pageType-option__title--checked'
+                                    : ''
                                 }`}
                               >
                                 Web
@@ -341,27 +339,29 @@ function MyTitle() {
                             )}
                           </li>
                           <li
-                            className="pageType-option-container"
+                            className="pageType-option"
                             id="1"
                             onClick={(e) => onPageTypeCheck(e)}
                           >
-                            <span className="option-header">
+                            <span className="pageType-option__header">
                               {pageType[1] ? (
                                 <img
                                   src="https://getliner.com/src/images/pdf-filter-selected.svg"
                                   alt="pdf-checked"
-                                  className="option-header-icon"
+                                  className="pageType-option__icon"
                                 />
                               ) : (
                                 <img
                                   src="https://getliner.com/src/images/pdf-filter.svg"
                                   alt="pdf"
-                                  className="option-header-icon"
+                                  className="pageType-option__icon"
                                 />
                               )}
                               <span
-                                className={`type-name ${
-                                  pageType[1] ? 'type-name--checked' : ''
+                                className={`pageType-option__title  ${
+                                  pageType[1]
+                                    ? 'pageType-option__title--checked'
+                                    : ''
                                 }`}
                               >
                                 PDF
@@ -389,34 +389,34 @@ function MyTitle() {
             </div>
           )}
           {/* SEARCH */}
-          <div className="my-nav-search">
-            <div className="search-content" ref={searchRef}>
+          <div className="my-nav__search">
+            <div className="search" ref={searchRef}>
               {searchFocus && (
                 <div className="search-option" ref={searchOptionRef}>
                   <button
-                    className="search-option-btn"
+                    className="search-option__btn"
                     onClick={(e) => onSearchOption(e)}
                   >
-                    <span className="search-option-title">Search Option</span>
+                    <span className="search-option__title">Search Option</span>
                     {searchOptionOpen ? <CollapseBtn /> : <ExtendBtn />}
                   </button>
                   {/* search dropdown */}
                   {searchOptionOpen && (
                     <ul className="modal-container search-dropdown">
-                      <span className="search-dropdown-title modal-subtitle">
+                      <span className="search-dropdown__title modal-subtitle">
                         Search Option
                       </span>
 
                       {search_option.map((option, i) => (
                         <li
-                          className="option-li "
+                          className="option"
                           key={i}
                           id={i}
                           onClick={(e) => onSearchOptionCheck(e)}
                         >
                           <span
                             className={`${
-                              searchOption[i] ? 'option-check' : ''
+                              searchOption[i] ? 'option--checked' : ''
                             }`}
                           >
                             {option}
@@ -432,10 +432,10 @@ function MyTitle() {
                   )}
                 </div>
               )}
-              <div className="search-input-container" onClick={onSearchFocus}>
+              <div className="search-input" onClick={onSearchFocus}>
                 <div className="input-wrapper">
                   <input
-                    className="search-input"
+                    className="search-input__input"
                     type="text"
                     placeholder="Search my highlights"
                   />
@@ -455,7 +455,7 @@ function MyTitle() {
         </div>
       </div>
       <span
-        className="search-description"
+        className="search__description"
         style={{ opacity: `${searchFocus ? '1' : '0'}` }}
       >
         Search results from my highlights

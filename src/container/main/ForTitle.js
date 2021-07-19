@@ -137,7 +137,7 @@ function ForTitle() {
         </div>
         {/* </div> */}
       </div>
-      <span className="for-title-description">
+      <span className="for-title__description">
         Picked by LINER, just for you
       </span>
     </>
