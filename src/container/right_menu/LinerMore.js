@@ -4,21 +4,21 @@ import React from 'react';
 function LinerMore() {
   return (
     <div className="liner-more">
-      <div className="liner-more-container">
-        <span href="#" className="liner-more-a">
+      <div className="liner-more__container">
+        <a href="#" className="liner-more__link">
           Terms & Privacy
-        </span>
-        <span href="#" className="liner-more-a a2">
+        </a>
+        <a href="#" className="liner-more__link">
           Support
-        </span>
+        </a>
       </div>
-      <div className="liner-more-container">
-        <span href="" className="liner-more-a">
+      <div className="liner-more__container">
+        <a href="" className="liner-more__link">
           Mobile Apps
-        </span>
-        <span href="" className="liner-more-a a2">
+        </a>
+        <a href="" className="liner-more__link">
           Browser Extensions
-        </span>
+        </a>
       </div>
       <div className="liner-corp">LINER © 2021</div>
     </div>

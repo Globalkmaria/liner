@@ -1,12 +1,17 @@
 import React from 'react';
-import { MoreBtn, MoreBtnNoHide, SaveBtn, ShareBtn } from './common/Buttons';
+import {
+  ForSaveBtn,
+  ForMoreBtn,
+  ForMoreBtnNoHide,
+  ForShareBtn,
+} from './common/Buttons';
 
 function ForyouBtn({ link }) {
   return (
     <>
-      <SaveBtn />
-      <ShareBtn link={link} />
-      <MoreBtn />
+      <ForSaveBtn />
+      <ForShareBtn link={link} />
+      <ForMoreBtn />
     </>
   );
 }
@@ -15,9 +20,9 @@ export default ForyouBtn;
 export function ForyouBtnDetail({ link }) {
   return (
     <>
-      <SaveBtn />
-      <ShareBtn link={link} />
-      <MoreBtnNoHide />
+      <ForSaveBtn />
+      <ForShareBtn link={link} />
+      <ForMoreBtnNoHide />
     </>
   );
 }

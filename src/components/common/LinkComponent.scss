@@ -1,25 +1,25 @@
 .linkline-container {
   display: flex;
 
-  .linkline-containe__img {
+  &__img {
     width: 20px;
     height: 20px;
     border-radius: 4px;
     object-fit: cover;
   }
 
-  .linkline-container__source {
+  &__source {
     margin-left: 14px;
 
-    .linkline-container__source__a {
-      color: #777;
-      font-size: 11px;
-      text-decoration: underline;
-      font-weight: 500;
-      cursor: pointer;
-      line-height: 1.5;
-      font-family: 'Roboto', sans-serif;
-    }
+  }
+  &__link {
+    color: #777;
+    font-size: 11px;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
   }
 
 }

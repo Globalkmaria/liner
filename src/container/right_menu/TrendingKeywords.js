@@ -5,11 +5,11 @@ import './RightMenu.scss';
 function TrendingKeywords() {
   return (
     <div className="tranding-keywords right-menu">
-      <div className="right-title">
+      <div className="right-menu__title">
         <h2>Trending Keywords</h2>
       </div>
       <div className="border"></div>
-      <div className="tranding-keywords-contents">
+      <div className="tranding-keywords__content">
         {trend_tag.map((tag, i) => (
           <span className="tranding-tag" key={i}>
             #{tag}

@@ -51,7 +51,7 @@ function DetailCommon({ item, myHi, foryou }) {
           </h3>
         </div>
         <div className="btnbox">
-          {foryou ? <ForyouBtnDetail /> : <MyDetailBtn />}
+          {foryou ? <ForyouBtnDetail link={link} /> : <MyDetailBtn />}
         </div>
       </div>
       <div

@@ -31,7 +31,7 @@
 }
 
 // BTN HOVER NAME
-.btn-hover-name__container {
+.btn-hover-name {
   display: flex;
   justify-content: center;
   width: 38px;
@@ -46,6 +46,7 @@
   left: -3px;
   background-color: #555;
   opacity: 1;
+
   .btn-hover-name__name {
     font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
     font-size: 11px;
@@ -58,6 +59,7 @@
 
 // --------------
 // **BTN MODAL
+.btn-modal,
 .btn-modal__container {
   font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
 
@@ -88,20 +90,23 @@
 }
 
 // BTN MODAL-titleline
-.btn-modal__titleline {
+.btn-modal__titleline,
+.btn-modal-titleline {
   padding: 0 12px 0 16px;
   display: flex;
   align-items: center;
   position: relative;
 
-  .btn-modal__titleline__title {
+  .btn-modal__titleline__title,
+  .btn-modal__title {
     font-weight: 700;
     font-size: 24px;
     letter-spacing: -.6px;
     color: #272b31;
   }
 
-  .btn-modal__titleline__close {
+  .btn-modal__titleline__close,
+  .close {
     background-image: url(../../assets/svg/close-be-comment.svg);
     width: 32px;
     height: 32px;
@@ -121,7 +126,7 @@
 
 // --------------
 // **BTN DROPDOWN
-.btn-with-dropdown__container {
+.btn-with-dropdown {
   position: relative;
   width: 32px;
   height: 32px;
@@ -138,20 +143,20 @@
     }
   }
 
-  .dropdown-hover-name {
+  .btn-hover-name {
     opacity: 0;
   }
 
   &:hover {
     background-color: #f6f8fa;
 
-    .dropdown-hover-name {
+    .btn-hover-name {
       opacity: 1;
     }
   }
 }
 
-.btn-dropdown__container {
+.btn-dropdown-list {
   box-sizing: border-box;
   position: absolute;
   top: 34px;
@@ -167,7 +172,7 @@
   margin: 0;
 }
 
-.btn-dropdown__li {
+.btn-dropdown-item {
   box-sizing: border-box;
   height: 40px;
   background-color: #fff;
@@ -184,21 +189,22 @@
   &:hover {
     background-color: #f6f8fa;
   }
-}
 
-.btn-dropdown__li__icon {
-  img {
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
+  &__icon {
+    img {
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
   }
 }
 
+
 // ===============
 // *** Individual css
-// Save btn
-.save-container {
+// ForSave btn
+.for-save {
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -232,11 +238,11 @@
 
   }
 
-  .save-btn--checked {
+  .for-save-btn--checked {
     background-image: url(../../assets/svg/save-fill.svg);
   }
 
-  .save-btn {
+  .for-save-btn {
     z-index: 1;
     background-image: url(../../assets/svg/save.svg);
 
@@ -244,7 +250,7 @@
 }
 
 // Share
-.share-container {
+.for-share {
   font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
   width: 32px;
   height: 32px;
@@ -252,13 +258,14 @@
   background-repeat: no-repeat;
   background-position: 50%;
   border-radius: 50%;
-position: relative;
-  .dropdown-hover-name {
+  position: relative;
+
+  .btn-hover-name {
     opacity: 0;
   }
 
   &:hover {
-    .dropdown-hover-name {
+    .btn-hover-name {
       opacity: 1;
     }
   }
@@ -291,7 +298,7 @@ position: relative;
 
 
 
-  .share-bottom {
+  .copyline {
     padding-left: 16px;
     margin-top: 7px;
     height: 36px;
@@ -301,7 +308,7 @@ position: relative;
     position: relative;
     margin-bottom: -4px;
 
-    .bottom-link {
+    &__link {
       border: none;
       font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
       font-size: 14px;
@@ -314,7 +321,7 @@ position: relative;
       cursor: pointer;
     }
 
-    .bottom-copy {
+    &__copy {
       font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
       font-size: 14px;
       font-weight: 700;
@@ -373,38 +380,40 @@ position: relative;
 
 
 //MyShare
-.my-edit-container {
+.myshare {
   position: relative;
 }
 
 
 // myHi Export
-.export-container {
+.myexport {
   position: relative;
   display: flex;
-  .dropdown-hover-name {
+
+  .btn-hover-name {
     opacity: 0;
   }
-  
+
   &:hover {
-    .dropdown-hover-name {
+    .btn-hover-name {
       opacity: 1;
     }
   }
+
   .export-btn {
     background-image: url(https://getliner.com/src/images/export-header.svg);
   }
 
-  .export-modal__container {
+  .myexport-modal {
     width: 400px;
     min-height: 179px;
   }
 
-  .myexport-titleline {
+  .myexport-modal__titleline {
     margin-bottom: 16px;
   }
 
-  .myexport-modal-subtitle {
+  .myexport-modal__subtitle {
     display: flex;
     padding: 0 16px;
     box-sizing: border-box;
@@ -418,35 +427,35 @@ position: relative;
     color: #787d86;
   }
 
-  .myexport-buttons__container {
+  .myexport-buttons {
     margin-left: 8px;
     padding-bottom: 12px;
     padding-top: 24px;
     display: flex;
     box-sizing: border-box;
 
-    .export-button__container {
+    .myexport-button {
       width: 53px;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-right: 16px;
 
-      .export-button__btn {
+      &__btn {
         width: 36px;
         height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        .export-button__btn__img {
-          width: 36px;
-          height: 36px;
-          vertical-align: middle;
-        }
       }
 
-      .btn-name {
+      &__img {
+        width: 36px;
+        height: 36px;
+        vertical-align: middle;
+      }
+
+      &__name {
         font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
         font-size: 12px;
         font-weight: 500;
@@ -465,7 +474,7 @@ position: relative;
 }
 
 // My More
-.my-more-container {
+.mymore {
   position: relative;
 
 }
@@ -481,69 +490,82 @@ position: relative;
   background-image: url(https://getliner.com/src/images/delete-header.svg);
 }
 
-.my-deleteBtn-container {
-  .delete-modal-container {
+.mydelete {
+  position: relative;
+
+  .btn-hover-name {
+    opacity: 0;
+  }
+
+  &:hover {
+    .btn-hover-name {
+      opacity: 1;
+    }
+  }
+
+  &__content {
     box-sizing: border-box;
     width: 400px;
     min-height: 179px;
+  }
 
-    .btn-modal-description {
-      margin-top: 24px;
-      box-sizing: border-box;
-      padding: 0 16px;
+  &__description {
+    margin-top: 24px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: -.35px;
+    color: #787d86;
+  }
+
+  &__buttons {
+    box-sizing: border-box;
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4px;
+
+  }
+
+  &__btn {
+    padding: 8px 12px;
+    margin-bottom: -4px;
+
+    &.cancel {
       font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-      font-size: 14px;
-      font-weight: 400;
+      font-size: 16px;
       font-stretch: normal;
       font-style: normal;
-      line-height: 1.29;
-      letter-spacing: -.35px;
+      line-height: 1.5;
+      letter-spacing: -.4px;
+      border-radius: 8px;
       color: #787d86;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #f6f8fa;
+      }
     }
 
-    .button-box {
-      box-sizing: border-box;
-      margin-top: 32px;
+    &.delete {
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
+      font-size: 16px;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: -.4px;
+      border-radius: 8px;
+      font-weight: 700;
+      color: #f35750;
 
-      display: flex;
-      justify-content: flex-end;
-      margin-right: 4px;
-
-      .delete-box-btn {
-        padding: 8px 12px;
-        margin-bottom: -4px;
-
-        &.cancel {
-          font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-          font-size: 16px;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.5;
-          letter-spacing: -.4px;
-          border-radius: 8px;
-          color: #787d86;
-          font-weight: 400;
-
-          &:hover {
-            background-color: #f6f8fa;
-          }
-        }
-
-        &.delete {
-          font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", sans-serif;
-          font-size: 16px;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.5;
-          letter-spacing: -.4px;
-          border-radius: 8px;
-          font-weight: 700;
-          color: #f35750;
-
-          &:hover {
-            background-color: rgba(243, 87, 80, .1);
-          }
-        }
+      &:hover {
+        background-color: rgba(243, 87, 80, .1);
       }
     }
   }

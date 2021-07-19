@@ -23,21 +23,18 @@ export function BtnWithDropdown({ button_name, button_img, lists }) {
     if (!containerRef.current.contains(e.target)) setOpenModal(false);
   };
   return (
-    <div className="btn-with-dropdown__container" ref={containerRef}>
-      <div
-        id="name-hover"
-        className="btn-hover-name__container dropdown-hover-name"
-      >
+    <div className="btn-with-dropdown" ref={containerRef}>
+      <div id="name-hover" className="btn-hover-name">
         <span className="btn-hover-name__name">{button_name}</span>
       </div>
       <button className="btn dropdown-btn" onClick={onOpenModal}>
         <img src={button_img} alt={button_name} />
       </button>
       {openModal && (
-        <ul className="btn-dropdown__container">
+        <ul className="btn-dropdown-list">
           {lists.map((list, i) => (
-            <li className="btn-dropdown__li" key={i}>
-              <span className="btn-dropdown__li__icon">
+            <li className="btn-dropdown-item" key={i}>
+              <span className="btn-dropdown-item__icon">
                 <img src={list[1]} alt={list[0]} />
               </span>
               {list[0]}
@@ -49,25 +46,28 @@ export function BtnWithDropdown({ button_name, button_img, lists }) {
   );
 }
 
-export function SaveBtn() {
+export function ForSaveBtn() {
   const [saved, setsaved] = useState(false);
   const onSave = () => {
     setsaved(!saved);
   };
   return (
     <>
-      <div className="save-container">
+      <div className="for-save">
         {saved ? (
           <>
             <button className="addTags">+ Add tags</button>
-            <button className="save-btn--checked btn" onClick={onSave}></button>
+            <button
+              className="for-save-btn--checked btn"
+              onClick={onSave}
+            ></button>
           </>
         ) : (
           <>
-            <div className="btn-hover-name__container dropdown-hover-name">
+            <div className="btn-hover-name dropdown-hover-name">
               <span className="btn-hover-name__name">Save</span>
             </div>
-            <button className="save-btn btn" onClick={onSave}></button>
+            <button className="for-save-btn btn" onClick={onSave}></button>
           </>
         )}
       </div>
@@ -75,7 +75,7 @@ export function SaveBtn() {
   );
 }
 
-export function ShareBtn({ link }) {
+export function ForShareBtn({ link }) {
   const [share, setShare] = useState(false);
   const [copied, setCopied] = useState(false);
   const sns = [
@@ -101,21 +101,16 @@ export function ShareBtn({ link }) {
   };
   return (
     <>
-      <div className="share-container">
+      <div className="for-share">
         {share && (
           <div
-            className="btn-modal__container share-modal-container "
+            className="btn-modal share-modal-container "
             onClick={(e) => onClickOutsideContainer(e)}
           >
             <div className="btn-modal__content">
               <div className="btn-modal__titleline">
-                <h3 className="btn-modal__titleline__title">
-                  Share Original Page
-                </h3>
-                <button
-                  className="btn-modal__titleline__close "
-                  onClick={onShare}
-                ></button>
+                <h3 className="btn-modal__title">Share Original Page</h3>
+                <button className="close" onClick={onShare}></button>
               </div>
               <div className="sns-container">
                 {sns.map((s, i) => (
@@ -126,19 +121,19 @@ export function ShareBtn({ link }) {
                   </a>
                 ))}
               </div>
-              <div className="share-bottom">
-                <span className="bottom-link" onClick={onCopy}>
+              <div className="copyline">
+                <span className="copyline__link" onClick={onCopy}>
                   {link + '/goodle-docs'}
                 </span>
                 <button
-                  className="bottom-copy copy"
+                  className="copyline__copy copy"
                   onClick={onCopy}
                   style={copied ? { opacity: '0' } : { opacity: '1' }}
                 >
                   Copy
                 </button>
                 <span
-                  className="bottom-copy copied"
+                  className="copyline__copy copied"
                   style={copied ? { opacity: '1' } : { opacity: '0' }}
                 >
                   Copied
@@ -147,7 +142,7 @@ export function ShareBtn({ link }) {
             </div>
           </div>
         )}
-        <div className="btn-hover-name__container dropdown-hover-name">
+        <div className="btn-hover-name">
           <span className="btn-hover-name__name">Share</span>
         </div>
         <button className="share-btn btn" onClick={onShare}></button>
@@ -156,7 +151,7 @@ export function ShareBtn({ link }) {
   );
 }
 
-export function MoreBtn() {
+export function ForMoreBtn() {
   const button_name = 'More';
   const button_img = '/assests/svg/more-light.svg';
   const lists = [
@@ -172,7 +167,7 @@ export function MoreBtn() {
     />
   );
 }
-export function MoreBtnNoHide() {
+export function ForMoreBtnNoHide() {
   const button_name = 'More';
   const button_img = '/assests/svg/more-light.svg';
   const lists = [
@@ -207,7 +202,7 @@ export function MyShare() {
     ],
   ];
   return (
-    <div className="my-edit-container">
+    <div className="myshare">
       <BtnWithDropdown
         button_name="Share"
         button_img="https://getliner.com/src/images/share-header.svg"
@@ -234,38 +229,31 @@ export function MyExport() {
   };
   return (
     <>
-      <div className="export-container">
-        <div className="btn-hover-name__container dropdown-hover-name">
+      <div className="myexport">
+        <div className="btn-hover-name">
           <span className="btn-hover-name__name">Export</span>
         </div>
         <button className="export-btn btn" onClick={onMore}></button>
         {more && (
           <div
-            className="btn-modal__container"
+            className="btn-modal"
             onClick={(e) => onClickOutsideContainer(e)}
           >
-            <div className="btn-modal__content export-modal__container">
-              <div className="btn-modal__titleline myexport-titleline">
-                <span className="btn-modal__titleline__title">Export</span>
-                <button
-                  className="btn-modal__titleline__close"
-                  onClick={onMore}
-                ></button>
+            <div className="btn-modal__content myexport-modal">
+              <div className="btn-modal__titleline myexport-modal__titleline">
+                <span className="btn-modal__title">Export</span>
+                <button className="close" onClick={onMore}></button>
               </div>
-              <span className="myexport-modal-subtitle">
+              <span className="myexport-modal__subtitle">
                 Export your highlights
               </span>
-              <div className="myexport-buttons__container">
+              <div className="myexport-buttons">
                 {buttons.map((b, i) => (
-                  <div className="export-button__container" key={i}>
-                    <button className="export-button__btn">
-                      <img
-                        src={b[1]}
-                        alt=""
-                        className="export-button__btn__img"
-                      />
+                  <div className="myexport-button" key={i}>
+                    <button className="myexport-button__btn">
+                      <img src={b[1]} alt="" className="myexport-button__img" />
                     </button>
-                    <span className="btn-name">{b[0]}</span>
+                    <span className="myexport-button__name">{b[0]}</span>
                   </div>
                 ))}
               </div>
@@ -286,7 +274,7 @@ export function MyMore() {
   const button_img = 'https://getliner.com/src/images/more-light.svg';
   const button_name = 'More';
   return (
-    <div className="my-more-container">
+    <div className="mymore">
       <BtnWithDropdown
         lists={lists}
         button_img={button_img}
@@ -305,34 +293,29 @@ export function MyDeleteBtn() {
     setModal(false);
   };
   return (
-    <div className="my-deleteBtn-container">
+    <div className="mydelete">
       {modal && (
-        <div
-          className="btn-modal__container "
-          onClick={(e) => onClickOutsideContainer(e)}
-        >
-          <div className="btn-modal__content delete-modal-container">
+        <div className="btn-modal" onClick={(e) => onClickOutsideContainer(e)}>
+          <div className="btn-modal__content mydelete__content">
             <div className="btn-modal__titleline">
-              <h3 className="btn-modal__titleline__title">
-                Move 1 page to trash
-              </h3>
-              <button
-                className="btn-modal__titleline__close "
-                onClick={onModalToggle}
-              ></button>
+              <h3 className="btn-modal__title">Move 1 page to trash</h3>
+              <button className="close " onClick={onModalToggle}></button>
             </div>
-            <span className="btn-modal-description">
+            <span className="mydelete__description">
               You can restore it in the trash
             </span>
-            <div className="button-box">
-              <button className="cancel delete-box-btn" onClick={onModalToggle}>
+            <div className="mydelete__buttons">
+              <button className="cancel mydelete__btn" onClick={onModalToggle}>
                 Cancel
               </button>
-              <button className="delete delete-box-btn">Delete</button>
+              <button className="delete mydelete__btn">Delete</button>
             </div>
           </div>
         </div>
       )}
+      <div className="btn-hover-name">
+        <span className="btn-hover-name__name">Delete</span>
+      </div>
       <button className="delete-btn btn" onClick={onModalToggle}></button>
     </div>
   );
